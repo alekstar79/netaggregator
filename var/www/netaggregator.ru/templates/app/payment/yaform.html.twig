@@ -1,0 +1,38 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}Yandex Payment{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1>Welcome to <span class="zf-green">Yandex Money</span></h1>
+
+        <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+            <input type="hidden" name="successURL" value="{{ redirect_uri }}">
+            <input type="hidden" name="formcomment" value="{{ comment }}">
+            <input type="hidden" name="receiver" value="{{ receiver }}">
+            <input type="hidden" name="targets" value="{{ targets }}">
+            <input type="hidden" name="label" value="{{ user_id }}">
+            <input type="hidden" name="quickpay-form" value="shop">
+
+            <input type="hidden" name="need-address" value="false">
+            <input type="hidden" name="need-phone" value="false">
+            <input type="hidden" name="need-email" value="false">
+            <input type="hidden" name="need-fio" value="false">
+
+            <input id="mobile" type="radio" name="paymentType" value="MC">
+            <label for="mobile">Мобильный телефон</label>
+
+            <input id="card" type="radio" name="paymentType" value="AC" checked="checked">
+            <label for="card">Банковской картой</label>
+
+            <input id="wallet" type="radio" name="paymentType" value="PC">
+            <label for="wallet">Яндекс.Деньгами</label>
+
+            <input type="text" name="sum" value="{{ ammount }}" placeholder="Сумма">
+            <input type="submit" value="Оплатить">
+        </form>
+        <!--<div>
+            <a href="{{ auth_url }}">Link</a>
+        </div>-->
+    </div>
+{% endblock %}

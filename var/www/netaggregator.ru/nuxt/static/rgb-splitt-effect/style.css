@@ -1,0 +1,140 @@
+:root {
+  --red: #ff4136;
+  --green: #2ecc40;
+  --blue: #0074d9;
+}
+html {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #272727;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  background: #f0f4f8;
+  min-height: calc(100vh - 90px);
+  margin: 0;
+  padding: 2rem 0;
+}
+p {
+  margin: 0;
+}
+/* General Layout */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0.5rem;
+}
+.container > div {
+  flex: 1;
+  padding: 0.5rem;
+}
+@media (max-width: 640px) {
+  .container {
+    padding: 0.25rem;
+  }
+  .container > div {
+    padding: 0.25rem;
+  }
+}
+.container p {
+  margin-bottom: 0.25rem;
+}
+img,
+canvas {
+  width: 100%;
+  height: auto;
+}
+/* Control Panel */
+.control {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.control > div {
+  margin-bottom: 0.5rem;
+}
+.control label {
+  display: inline-block;
+  width: 16px;
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.red {
+  color: var(--red);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.green {
+  color: var(--green);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.blue {
+  color: var(--blue);
+}
+
+/* Sliders */
+input[type="range"] {
+  min-width: 200px;
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.9;
+  -webkit-transition: 0.1s;
+  transition: opacity 0.1s;
+}
+input[type="range"]:hover {
+  opacity: 1;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.red input[type="range"]::-webkit-slider-thumb {
+  background-color: var(--red);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.green input[type="range"]::-webkit-slider-thumb {
+  background-color: var(--green);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.blue input[type="range"]::-webkit-slider-thumb {
+  background-color: var(--blue);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.red input[type="range"]::-moz-range-thumb {
+  background-color: var(--red);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.green input[type="range"]::-moz-range-thumb {
+  background-color: var(--green);
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.blue input[type="range"]::-moz-range-thumb {
+  background-color: var(--blue);
+}

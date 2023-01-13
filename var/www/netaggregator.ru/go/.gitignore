@@ -1,0 +1,8 @@
+# Go executable and packages
+bin
+pkg
+
+# Sistem folders
+vendor
+.idea
+

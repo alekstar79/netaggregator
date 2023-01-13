@@ -1,0 +1,296 @@
+@media(min-width: 1199px) {
+    .main-nav__logo-box .side-menu__toggler {
+        display: none;
+    }
+    .main-nav__logo-box .app-title {
+        display: block;
+    }
+    .pricing-one__single h3 {
+        font-size: 2vmax;
+    }
+}
+
+@media(max-width: 1199px) {
+    .footer-widget__links-wrap {
+        padding-right: 40px;
+    }
+    .main-nav__main-navigation {
+        display: none;
+    }
+    .main-nav__logo-box {
+        display: flex;
+        align-items: center;
+    }
+    .main-nav__logo-box .side-menu__toggler {
+        display: block;
+    }
+    .main-nav__logo-box .app-title {
+        display: none;
+    }
+    .stricked-menu {
+        display: none;
+    }
+    .faq-one__shape-3,
+    .cta-three__shape-3,
+    .banner-one__content p br,
+    .banner-one__content h3 br {
+        display: none;
+    }
+    .pricing-one__single h3 {
+        font-size: 3vmax;
+    }
+    .back .pricing-one__single h3 {
+        font-size: 2vmax;
+    }
+    .cta-three__moc {
+        left: -20%;
+    }
+    .cta-three__content {
+        padding-left: 0;
+    }
+    .cta-two__moc {
+        right: -20%;
+    }
+    #testimonials-slider-pager {
+        position: relative;
+        right: 30px;
+    }
+}
+
+@media(max-width: 991px) {
+    .site-footer__upper {
+        padding-bottom: 60px;
+    }
+    .footer-widget {
+        margin-bottom: 40px;
+    }
+    .sidebar {
+        margin-top: 80px;
+    }
+    .banner-one__moc {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-bottom: 30px;
+    }
+    .banner-one .container {
+        padding-top: 200px;
+        padding-bottom: 190px;
+    }
+    .service-one__col {
+        flex: 1 1 33.333%;
+    }
+    .cta-three {
+        padding-bottom: 110px;
+    }
+    .cta-two {
+        padding-bottom: 75px;
+    }
+    .cta-three__moc {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+    .cta-three__shape-1 {
+        top: 0;
+    }
+    .cta-two__moc {
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+    .funfact-one {
+        padding-bottom: 90px;
+    }
+    .pricing-one__single,
+    .funfact-one__single {
+        margin-bottom: 30px;
+    }
+    .pricing-one__single h3 {
+        font-size: 4vmax;
+    }
+    .back .pricing-one__single h3 {
+        font-size: 3vmax;
+    }
+    .app-shot-one {
+        padding-top: 90px;
+    }
+    /* .app-shot-one .app-shot-one__carousel::before {
+        display: none;
+    }
+    .app-shot-one .app-shot-one__carousel {
+        padding-bottom: 0;
+        padding-top: 0;
+        margin-top: 0;
+    } */
+    .testimonials__one .map-img {
+        top: 35%;
+    }
+    #testimonials-slider-pager {
+        right: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 45px;
+    }
+    .faq-accrodion .accrodion .accrodion-title::before,
+    .faq-accrodion .accrodion .accrodion-title::after {
+        width: 45px;
+        height: 45px;
+        right: 30px;
+    }
+    .faq-accrodion .accrodion .accrodion-content .inner {
+        padding-right: 60px;
+    }
+    .contact-one__content {
+        margin-bottom: 40px;
+    }
+    .contact-one__shape-1 {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    img {
+        max-width: 100%;
+    }
+    .cta-one {
+        padding-top: 25px;
+    }
+    .cta-one__content h3 br {
+        display: none;
+    }
+    [class*=banner-one__shape-] {
+        display: none;
+    }
+}
+
+@media(max-width: 625px) {
+    .site-footer__bottom .inner-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .site-footer__social {
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width: 575px) {
+    .service-one__col {
+        flex: 1 1 50%;
+    }
+    .faq-accrodion .accrodion .accrodion-title {
+        padding-right: 80px;
+    }
+}
+
+@media(max-width: 480px) {
+    .footer-widget__links-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .footer-widget__links-wrap ul + ul {
+        margin-top: 22px;
+    }
+    .cta-one__content h3 {
+        font-size: 38px;
+    }
+    .faq-accrodion .accrodion::after {
+        transform: translateX(0);
+        font-size: 40px;
+    }
+    #testimonials-slider-pager {
+        width: 430px;
+        height: 430px;
+        background-size: 100%;
+    }
+}
+
+@media(max-width: 425px) {
+    .main-nav__right {
+        display: none;
+    }
+    .main-nav__logo-box {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .service-one__col {
+        flex: 1 1 100%;
+    }
+    .banner-one__content h3 {
+        line-height: 1.2em;
+    }
+    .block-title h3 {
+        font-size: 40px;
+    }
+    #testimonials-slider-pager {
+        display: none;
+        height: 0;
+        width: 0;
+    }
+    .faq-accrodion .accrodion .accrodion-content .inner {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .faq-accrodion .accrodion .accrodion-title {
+        padding-left: 30px;
+    }
+}
+
+@media(max-width: 375px) {
+    .sidebar-single:not(.sidebar__search) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .banner-one__content .banner-one__tag-line {
+        font-size: 9px;
+    }
+    section#app-shots.app-shot-one .app-shot-one__carousel,
+    section#testimonials.testimonials__one,
+    section#pricing.pricing-one,
+    section#faq.faq-one,
+    section.cta-two {
+        padding: 0;
+    }
+    #testimonials.testimonials__one .map-img {
+        height: 0 !important;
+        width: 0 !important;
+        display: none;
+    }
+    [class*=app-shot__shape-],
+    [class*=contact-one__shape-],
+    [class*=cta-three__shape-],
+    [class*=cta-two__shape-],
+    [class*=site-footer__shape-],
+    [class*=faq-one__shape-] {
+        display: none;
+    }
+}
+
+@media(max-width: 320px) {
+    .banner-one__content .banner-one__tag-line {
+        padding-left: 15px;
+    }
+    .banner-one__content .banner-one__tag-line a {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: 5px;
+    }
+    .cta-three__box {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .cta-three__box-content {
+        padding-left: 0;
+        padding-top: 25px;
+    }
+    .cta-three__box::before {
+        display: none;
+    }
+}

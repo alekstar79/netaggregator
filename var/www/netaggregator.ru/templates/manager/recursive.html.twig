@@ -1,0 +1,17 @@
+{% macro list(items, root) %}
+{% import _self as recursive %}
+    <ul>
+{% for item in items %}
+    {% if item.path is defined %}
+        <li>
+            <div class="fo closed" data-fo="{{item.path}}">{{item.name}}</div>
+            {% if item.childs is defined %}
+                {{recursive.list(item.childs, root)}}
+            {% endif %}
+        </li>
+    {% else %}
+        <li class="ext-file ext-{{item.ext}}">{{item.name}}</li>
+    {% endif %}
+{% endfor %}
+    </ul>
+{% endmacro %}

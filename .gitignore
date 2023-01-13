@@ -1,0 +1,72 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# Logs
+/logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Output of 'npm pack'
+*.tgz
+
+# Archives
+*.tar.gz
+
+# dotenv environment variables file
+.env
+
+# certificates and keys
+*.crt
+*.key
+*.pem
+
+# letsencrypt sertificates
+etc/letsencrypt/accounts
+etc/letsencrypt/archive
+etc/letsencrypt/keys
+etc/letsencrypt/live
+etc/letsencrypt/csr
+
+# Nginx
+etc/nginx/sites-enabled
+
+# Root settings etc...
+root/.u2net
+root/.ssh
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
+# Backups dir
+backups/
+
+# u2net model
+*.onnx
+
+# Serverless directories
+.serverless
+
+# IDE / Editor
+.idea
+
+# Service worker
+sw.*
+
+# macOS
+.DS_Store
+
+# Vim swap files
+*.swp
+
+# folder for the alekstar79.ru domen
+alekstar79.ru

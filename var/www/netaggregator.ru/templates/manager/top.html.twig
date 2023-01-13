@@ -1,0 +1,30 @@
+{% set root = root|trim('/', 'right') %}
+<div id="ab-breadcrumb" class="ab-col12">
+    <div id="breadcrumb-links" class="ab-col7" data-path="{{ root }}">
+        <span class="open">{{ root }}</span>
+    </div>
+    
+    <div id="ab-top-action-btn" class="ab-col5 ab-text-right">
+        <button class="ab-btn asphalt" title="{{ lng.create_folder_here }}">
+            <i class="fa fa-folder-o" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn asphalt" title="{{ lng.create_file_here }}">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn asphalt" title="{{ lng.paste_here }}">
+            <i class="fa fa fa-clipboard" aria-hidden="true"></i>
+        </button>
+        <div class="ab-btn asphalt fa fa-upload" title="{{ lng.upload_file_here }}">
+            <form id="frm-uploadfile" name="frm-uploadfile" enctype="multipart/form-data">
+                <input type="file" id="file" name="file[]" multiple="multiple">
+                <input type="hidden" id="inputpath" name="inputpath">
+            </form>
+        </div>
+        <button class="ab-btn asphalt" title="{{ lng.zip_and_download_site }}">
+            <i class="fa fa-download" aria-hidden="true"></i>
+        </button>
+        <a class="ab-btn asphalt" title="{{ lng.general_settings }}" href="/editor?f=config" target="_blank">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+{
+  "name": "alekstar79/netaggregator",
+  "description": "Expressive server side of the netaggregator service app",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "keywords": [
+    "middleware",
+    "psr"
+  ],
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "zf": {
+      "component-whitelist": [
+        "zendframework/zend-expressive",
+        "zendframework/zend-expressive-helpers",
+        "zendframework/zend-expressive-router",
+        "zendframework/zend-httphandlerrunner",
+        "zendframework/zend-expressive-aurarouter",
+        "zendframework/zend-expressive-twigrenderer"
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/yandex-money/yandex-money-sdk-php"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "ext-curl": "*",
+    "ext-fileinfo": "*",
+    "ext-gd": "*",
+    "ext-imagick": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-libxml": "*",
+    "ext-mbstring": "*",
+    "ext-pcntl": "*",
+    "ext-pdo": "*",
+    "ext-pgsql": "*",
+    "ext-posix": "*",
+    "ext-simplexml": "*",
+    "ext-zip": "*",
+    "ext-zlib": "*",
+    "cboden/ratchet": "^0.4.1",
+    "composer/package-versions-deprecated": "1.8.0",
+    "dasprid/container-interop-doctrine": "^1.1",
+    "dflydev/fig-cookies": "3.0.0",
+    "fzaninotto/faker": "^1.8",
+    "gladyshev/rucaptcha-client": "^1.3",
+    "google/cloud-dialogflow": "^0.10.0",
+    "guzzlehttp/guzzle": "^6.3",
+    "jenssegers/imagehash": "^0.8.0",
+    "league/oauth2-client": "^2.4",
+    "mongodb/mongodb": "^1.5",
+    "monolog/monolog": "^1.24",
+    "opsway/doctrine-dbal-postgresql": "^0.8.1",
+    "predis/predis": "^1.1",
+    "ratchet/pawl": "^0.3.4",
+    "simplepie/simplepie": "^1.5",
+    "symfony/process": "^4.3",
+    "unitpay/php-sdk": "dev-master",
+    "vlucas/phpdotenv": "^3.6",
+    "yandex-money/yandex-money-sdk-php": "dev-master",
+    "zendframework/zend-component-installer": "^2.1.1",
+    "zendframework/zend-config-aggregator": "^1.0",
+    "zendframework/zend-diactoros": "^1.7.1 || ^2.0",
+    "zendframework/zend-expressive": "^3.0.1",
+    "zendframework/zend-expressive-aurarouter": "^3.0",
+    "zendframework/zend-expressive-helpers": "^5.0",
+    "zendframework/zend-expressive-session": "^1.2",
+    "zendframework/zend-expressive-twigrenderer": "^2.0",
+    "zendframework/zend-servicemanager": "^3.3",
+    "zendframework/zend-stdlib": "^3.1"
+  },
+  "require-dev": {
+    "doctrine/data-fixtures": "^1.3",
+    "doctrine/migrations": "^1.8",
+    "phpunit/phpunit": "^7.0.1",
+    "roave/security-advisories": "dev-latest",
+    "squizlabs/php_codesniffer": "^2.9.1",
+    "zendframework/zend-expressive-tooling": "^1.0",
+    "zfcampus/zf-development-mode": "^3.1",
+    "filp/whoops": "^2.1.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Db\\":        "src/Db/",
+      "App\\":       "src/App/",
+      "Console\\":   "src/Console/",
+      "Helpers\\":   "src/Helpers/",
+      "Manager\\":   "src/Manager/",
+      "Process\\":   "src/Process/"
+    },
+    "classmap": [
+      "vendor/php-censure",
+      "vendor/libmail"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AppTest\\": "test/AppTest/"
+    }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "@development-enable"
+    ],
+    "development-disable": "zf-development-mode disable",
+    "development-enable": "zf-development-mode enable",
+    "development-status": "zf-development-mode status",
+    "expressive": "expressive --ansi",
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "clear-app-cache": "bin/console cache:clear",
+    "serve": "php -S 0.0.0.0:8080 -t path/to/www/",
+    "test": "phpunit --colors=always",
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+  }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% block html %}{% endblock %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    {% block meta %}{% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/dist/common.css">
+    <link rel="stylesheet" href="/dist/manager.css">
+    {% block styles %}{% endblock %}
+</head>
+
+<body>
+{% block main %}{% endblock %}
+{% block scripts %}{% endblock %}
+</body>

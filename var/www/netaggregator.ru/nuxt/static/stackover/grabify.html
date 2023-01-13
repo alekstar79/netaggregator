@@ -1,0 +1,29 @@
+<!--suppress CssUnknownTarget-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2C3E50">
+
+    <title>Grabify IP Logger &amp; URL Shortener</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+        body {display: flex;justify-content: center;width: 100%;height: 100vh;background: #222 no-repeat;background-size: cover;overflow: hidden;}
+
+        .blink {position: relative; margin: 100px auto; height: 100px; color: #fff; font-family: "Fredoka One", cursive; font-size: 5em; text-transform: uppercase; text-shadow: 0 0 60px, 0 0 22px, 0 0 1em #f00, 0 0 0.5em #f00, 0 0 0.1em #f00, 0 10px 3px #000; animation: blink 1.5s ease infinite; padding: 20px;}
+        .blink::before {position: absolute; color: #fff; content: ''; top: 0; left: 0; width: 100%; height: 100%; border: 8px solid #fff; border-radius: 30px; box-shadow: 0 0 600px #f00, inset 0 0 60px #f00; animation: blink-border 2.5s ease infinite;}
+        .blink span {display: inline-block; min-width: 280px;}
+        .blink span:first-child::after {position: absolute; content: 'N'; transform: rotate(20deg) translate(20px, 10px); animation: blink-letter 2s ease infinite;}
+
+        @keyframes blink{31%, 33%{color: #fff; text-shadow: 0 0 60px, 0 0 22px, 0 0 1em #f00, 0 0 0.5em #f00, 0 0 0.1em #f00, 0 10px 3px #000;}32%{color: #444; text-shadow: none;}}
+        @keyframes blink-border{31%, 33%, 62%, 67%{border-color: #fff; box-shadow: 0 0 600px #f00, inset 0 0 50px #f00;}32%, 63%{border-color: #444; box-shadow: none;}}
+        @keyframes blink-letter{from{color: #444; text-shadow: none;}2%, 59%, 64%, 79%{color: #fff;}3%, 59%, 63%, 78%{text-shadow: 0 0 60px, 0 0 22px, 0 0 1em #f00, 0 0 0.5em #f00, 0 0 0.1em #f00, 0 10px 3px #000;}60%{color: #444; text-shadow: none;}75%{color: #444; text-shadow: none;}}
+    </style>
+</head>
+<body>
+    <div class="blink"> <span>&#72;&#111;&#119;&#32;&#97;&#98;&#111;&#117;&#116;</span>&#13;&#32;&#32;&#32;&#32;<span>&#32;&#32;&#32;&#45;&#32;&#111;&#44;&#32;&#112;&#97;&#108;</span></div>
+</body>
+</html>

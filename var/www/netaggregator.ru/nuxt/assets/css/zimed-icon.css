@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'zimed-icon';
+    src:  url('../fonts/zimed-icon.eot?xoxouk');
+    src:  url('../fonts/zimed-icon.eot?xoxouk#iefix') format('embedded-opentype'),
+    url('../fonts/zimed-icon.ttf?xoxouk') format('truetype'),
+    url('../fonts/zimed-icon.woff?xoxouk') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+[class^="zimed-icon-"], [class*=" zimed-icon-"] {
+    /*noinspection CssNoGenericFontName*/
+    font-family: 'zimed-icon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}
+
+.zimed-icon-app-development:before {
+    content: '\e900';
+}
+.zimed-icon-computer-graphic:before {
+    content: '\e901';
+}
+.zimed-icon-development:before {
+    content: '\e902';
+}
+.zimed-icon-development1:before {
+    content: '\e903';
+}
+.zimed-icon-left-arrow:before {
+    content: '\e904';
+}
+.zimed-icon-right-arrow:before {
+    content: '\e905';
+}
+.zimed-icon-message:before {
+    content: '\e906';
+}
+.zimed-icon-phone-call:before {
+    content: '\e907';
+}
+.zimed-icon-placeholder:before {
+    content: '\e908';
+}
+.zimed-icon-responsive:before {
+    content: '\e909';
+}
+.zimed-icon-strategy:before {
+    content: '\e90a';
+}
+.zimed-icon-training:before {
+    content: '\e90b';
+}

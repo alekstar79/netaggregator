@@ -1,0 +1,11 @@
+[Unit]
+Description=Run cbr cache every hour
+Requires=cbr.service
+
+[Timer]
+OnBootSec=3m
+OnCalendar=*-*-* *:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

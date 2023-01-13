@@ -1,0 +1,74 @@
+[
+  {
+    "img": "oxy.png",
+    "x": 565,
+    "y": 638,
+    "angle": 0,
+    "font": "Annabelle.ttf",
+    "font_size": 35,
+    "font_color": "#6E6E6E"
+  },
+  {
+    "img": "djarahov.png",
+    "x": 390,
+    "y": 575,
+    "angle": -20,
+    "font": "Annabelle.ttf",
+    "font_size": 35,
+    "font_color": "#6E6E6E"
+  },
+  {
+    "img": "mops.png",
+    "x": 300,
+    "y": 600,
+    "angle": -15,
+    "font": "Annabelle.ttf",
+    "font_size": 35,
+    "font_color": "#6E6E6E"
+  },
+  {
+    "img": "maryanaro.png",
+    "x": 290,
+    "y": 500,
+    "angle": 15,
+    "font": "Annabelle.ttf",
+    "font_size": 35,
+    "font_color": "#6E6E6E"
+  },
+  {
+    "img": "h.jpg",
+    "x": 200,
+    "y": 400,
+    "angle": -15,
+    "font": "Annabelle.ttf",
+    "font_size": 35,
+    "font_color": "#6E6E6E"
+  },
+  {
+    "img": "hovanskiy.png",
+    "x": 320,
+    "y": 355,
+    "angle": 0,
+    "font": "Annabelle.ttf",
+    "font_size": 35,
+    "font_color": "#6E6E6E"
+  },
+  {
+    "img": "karina.png",
+    "x": 380,
+    "y": 220,
+    "angle": 20,
+    "font": "Annabelle.ttf",
+    "font_size": 35,
+    "font_color": "#6E6E6E"
+  },
+  {
+    "img": "shurigina.png",
+    "x": 570,
+    "y": 170,
+    "angle": -30,
+    "font": "Annabelle.ttf",
+    "font_size": 35,
+    "font_color": "#6E6E6E"
+  }
+]

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Split Effect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div>
+        <p>Original Image:</p>
+        <img id="source" src="demo.jpeg" crossorigin="anonymous" alt=""/>
+    </div>
+    <div>
+        <p>Canvas:</p>
+        <canvas id="canvas"></canvas>
+    </div>
+</div>
+
+<div class="control">
+    <div class="red">
+        <label for="rOffset">R:</label>
+        <input id="rOffset" type="range" min="-100" max="100" step="5"/>
+    </div>
+
+    <div class="green">
+        <label for="gOffset">G:</label>
+        <input id="gOffset" type="range" min="-100" max="100" step="5"/>
+    </div>
+
+    <div class="blue">
+        <label for="bOffset">B:</label>
+        <input id="bOffset" type="range" min="-100" max="100" step="5"/>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

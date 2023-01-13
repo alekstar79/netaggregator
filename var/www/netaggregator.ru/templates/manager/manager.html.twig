@@ -1,0 +1,36 @@
+{% extends '@manager/index.html.twig' %}
+
+{% block html %}
+<html lang="en">
+{{ parent() }}
+{% endblock %}
+
+{% block title %}Filemanager{% endblock %}
+
+{% block meta %}
+    <meta name="description" content="Simple file manager" />
+{% endblock %}
+
+{% block main %}
+    <div id="app">
+        <div class="ab-container ab-filemanager" id="ab-main">
+            <div id="ab-content" class="ab-row">
+
+                {% include '@manager/top.html.twig' %}
+                {% include '@manager/leftpanel.html.twig' %}
+
+                <div id="ab-container-table" class="ab-col8">
+                    {% include '@manager/rightpanel.html.twig' %}
+                </div>
+            </div>
+
+            {% include '@manager/footer.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/dist/vendor.js"></script>
+<script src="/dist/common.js"></script>
+<script src="/dist/manager.js"></script>
+{% endblock %}

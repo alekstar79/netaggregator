@@ -1,0 +1,42 @@
+{{ define "add-sign" }}
+{{ template "header" }}
+<main class="px-3">
+    <h1 class="cover-heading">Add sign</h1>
+
+    <form class="sign-form" action="signa" method="post">
+        <div class="mb-3">
+            <label for="img-input" class="form-label">Image</label>
+            <input type="text" class="form-control" name="img" id="img-input" placeholder="File">
+        </div>
+        <div class="mb-3">
+            <label for="input-x" class="form-label">X</label>
+            <input type="text" class="form-control" name="x" id="input-x" placeholder="Coord X" value="0">
+        </div>
+        <div class="mb-3">
+            <label for="input-y" class="form-label">Y</label>
+            <input type="text" class="form-control" name="y" id="input-y" placeholder="Coord Y" value="0">
+        </div>
+        <div class="mb-3">
+            <label for="input-angle" class="form-label">Angle</label>
+            <input type="text" class="form-control" name="angle" id="input-angle" value="0">
+        </div>
+        <div class="mb-3">
+            <label for="input-font-family" class="form-label">Font</label>
+            <input type="text" class="form-control" name="font" id="input-font-family" value="Times New Roman">
+        </div>
+        <div class="mb-3">
+            <label for="input-font-size" class="form-label">Size</label>
+            <input type="text" class="form-control" name="size" id="input-font-size" value="32">
+        </div>
+        <div class="mb-3">
+            <label for="input-font-color" class="form-label">Color</label>
+            <input type="text" class="form-control" name="color" id="input-font-color" value="#6E6E6E">
+        </div>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</main>
+{{ template "footer" }}
+{{ end }}

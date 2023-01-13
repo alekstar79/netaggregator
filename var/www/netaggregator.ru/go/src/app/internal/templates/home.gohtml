@@ -1,0 +1,11 @@
+{{ define "index" }}
+{{ template "header" }}
+<main class="px-3">
+    <h1 class="cover-heading">Главная</h1>
+
+    <h3 class="text-white">
+        {{ .Joke }}
+    </h3>
+</main>
+{{ template "footer" }}
+{{ end }}

@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: #1e1e1e;
+}
+
+#logo {
+    width: 500px;
+    min-height: 500px;
+    border-radius: 50%;
+    background: red;
+}

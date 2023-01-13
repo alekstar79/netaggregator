@@ -1,0 +1,22 @@
+{{ define "index" }}
+{{ template "header" }}
+<main class="px-3">
+    <h1 class="cover-heading">Главная</h1>
+    <p class="lead">Пользователь</p>
+
+    <p>Имя: {{ .Name }}</p>
+    <p>Возраст: {{ .Age }}</p>
+    <p>Счет: {{ .Money }}</p>
+
+    <h2 class="text-white">
+        Хобби
+    </h2>
+
+    {{ range .Hobbies }}
+    <p class="lead">{{ . }}</p>
+    {{ else }}
+    <p class="lead">Хобби нет</p>
+    {{ end }}
+</main>
+{{ template "footer" }}
+{{ end }}

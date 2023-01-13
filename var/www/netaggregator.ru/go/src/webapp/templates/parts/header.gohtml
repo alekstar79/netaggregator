@@ -1,0 +1,31 @@
+{{ define "header" }}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Go site">
+    <meta name="author" content="alekstar79">
+    <title>Home Go</title>
+
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <meta name="theme-color" content="#7952b3">
+</head>
+
+<body class="d-flex h-100vh text-center text-white bg-dark">
+<div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-5">
+        <div>
+            <h3 class="float-md-start mb-0">Golang Site</h3>
+
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link active" aria-current="page" href="/">Главная</a>
+                <a class="nav-link" href="/contact">Контакты</a>
+                <a class="nav-link" href="/about">О нас</a>
+                <a class="nav-link" href="/signa">Добавить</a>
+            </nav>
+        </div>
+    </header>
+{{ end }}

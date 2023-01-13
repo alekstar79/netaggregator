@@ -1,0 +1,102 @@
+/*noinspection CssUnresolvedCustomProperty*/
+:root {
+    --color-primary: #4608ad;
+    --color-primary-darken: #32067c;
+    --color-primary-lighten: #f4f1fa;
+    --color-secondary: #fafafa;
+    --color-secondary-darken: #e0e0e0;
+    --color-text: #4a4a4a;
+    --color-text-lighten: #7a7a7a;
+    --color-text-dark: var(--color-primary-lighten);
+    --color-success: #50b154;
+    --color-error: #ff5252;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+body {
+    background: var(--color-secondary);
+    color: var(--color-text);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: .9rem;
+    line-height: 1.5rem;
+    margin: 0;
+}
+
+.empty {
+    height: calc(100% - 4.5rem);
+    text-align: center;
+    margin: 2.5rem 0 3.5rem 0;
+}
+
+.ttt-game {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 13rem;
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.ttt-player-icon {
+    color: var(--color-primary);
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.ttt-player-icon--hidden {
+    display: none;
+}
+
+.ttt-score {
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.ttt-grid {
+    background: var(--color-primary-lighten);
+    border-radius: 4px;
+    line-height: 0;
+    margin: auto;
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.ttt-cell {
+    border-width: 1px 0 0 1px;
+    border-color: var(--color-primary);
+    border-style: solid;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+}
+
+.ttt-row:first-child .ttt-cell {
+    border-top: none;
+}
+
+.ttt-cell:first-child {
+    border-left: none;
+}
+
+.ttt-icon {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+/*noinspection CssUnresolvedCustomProperty*/
+.ttt-cell .ttt-icon {
+    color: var(--color-primary);
+    display: block;
+}
+
+.ttt-blink .ttt-icon {
+    animation: blink 250ms step-end 0s 3;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}

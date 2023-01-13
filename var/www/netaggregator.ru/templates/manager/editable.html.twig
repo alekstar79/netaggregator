@@ -1,0 +1,26 @@
+<tr class="white" data-path="{{ item.path ?? path }}">
+    <td class="ab-tdfile">
+        <span class="ext-file ext-{{ item.ext }}">{{ item.name }}</span>
+    </td>
+    <td><small>{{ item.size }}</small></td>
+    <td>
+        <button class="ab-btn red delete-file" title="{{ lng.delete }}">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn blue renamefile" title="{{ lng.rename }}">
+            <i class="fa fa-random" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn blue copy" title="{{ lng.copy }}">
+            <i class="fa fa-copy" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn blue cut" title="{{ lng.cut }}">
+            <i class="fa fa-scissors" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn asphalt downloadfile" title="{{ lng.download }}">
+            <i class="fa fa-download" aria-hidden="true"></i>
+        </button>
+        <a class="ab-btn violet ab-edit-file" href="/editor?f={{ item.path ?? path }}" target="_blank" title="{{ lng.edit }}">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+        </a>
+    </td>
+</tr>

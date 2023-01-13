@@ -1,0 +1,6 @@
+[Unit]
+Description=cbr fetch currency rate
+[Service]
+Type=oneshot
+ExecStart=/var/www/netaggregator.ru/src/App/Service/Currency/cache.sh
+PrivateTmp=true

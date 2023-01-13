@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    background: #0f0f11;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    font-style: italic;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.logo {
+    margin: 2px;
+    border-radius: 30px;
+}

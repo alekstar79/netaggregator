@@ -1,0 +1,26 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}PayPal Payment{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1>Welcome to <span class="zf-green">Pay Pal</span></h1>
+
+        <form id="paypal" action="{{ pay_url }}" method="POST">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="{{ receiver }}"/>
+            <input type="hidden" name="item_name" value="{{ targets }}"/>
+            <input type="hidden" name="item_number" value="{{ user_id }}"/>
+            <input type="hidden" name="currency_code" value="RUB">
+            <input type="hidden" name="button_subtype" value="services">
+            <input type="hidden" name="no_note" value="1">
+            <input type="hidden" name="no_shipping" value="1">
+            <input type="hidden" name="notify_url" value="{{ notify_url }}">
+            <input type="hidden" name="return" value="https://netaggregator.ru/payment/pp?state=success">
+            <input type="hidden" name="cancel_return" value="https://netaggregator.ru/payment/pp?state=cancel">
+
+            <input type="text" name="amount" value="{{ ammount }}" placeholder="Сумма">
+            <input type="submit" value="Пополнить">
+        </form>
+    </div>
+{% endblock %}

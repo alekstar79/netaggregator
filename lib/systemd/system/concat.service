@@ -1,0 +1,6 @@
+[Unit]
+Description=Concat
+[Service]
+Type=oneshot
+ExecStart=/var/www/netaggregator.ru/src/App/Service/Stream/concat.sh
+PrivateTmp=true

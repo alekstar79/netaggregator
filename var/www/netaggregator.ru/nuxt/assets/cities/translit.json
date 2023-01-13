@@ -1,0 +1,1218 @@
+[
+    {
+        "id": 1,
+        "title": "Москва",
+        "region": "Московская область",
+        "translit": "Moskva"
+    },
+    {
+        "id": 2,
+        "title": "Санкт-Петербург",
+        "region": "Ленинградская область",
+        "translit": "Sankt-Peterburg"
+    },
+    {
+        "id": 8,
+        "title": "Череповец",
+        "region": "Вологодская область",
+        "translit": "Cherepovets"
+    },
+    {
+        "id": 10,
+        "title": "Волгоград",
+        "region": "Волгоградская область",
+        "important": 1,
+        "translit": "Volgograd"
+    },
+    {
+        "id": 11,
+        "title": "Северодвинск",
+        "region": "Архангельская область",
+        "translit": "Severodvinsk"
+    },
+    {
+        "id": 12,
+        "title": "Пушкин",
+        "region": "Санкт-Петербург город",
+        "translit": "Pushkin"
+    },
+    {
+        "id": 17,
+        "title": "Абакан",
+        "region": "Хакасия",
+        "translit": "Abakan"
+    },
+    {
+        "id": 18,
+        "title": "Альметьевск",
+        "area": "Альметьевский район",
+        "region": "Татарстан",
+        "translit": "Almetyevsk"
+    },
+    {
+        "id": 19,
+        "title": "Ангарск",
+        "region": "Иркутская область",
+        "translit": "Angarsk"
+    },
+    {
+        "id": 20,
+        "title": "Арзамас",
+        "region": "Нижегородская область",
+        "translit": "Arzamas"
+    },
+    {
+        "id": 21,
+        "title": "Армавир",
+        "area": "Городской округ Армавир район",
+        "region": "Краснодарский край",
+        "translit": "Armavir"
+    },
+    {
+        "id": 22,
+        "title": "Архангельск",
+        "region": "Архангельская область",
+        "translit": "Arkhangelsk"
+    },
+    {
+        "id": 23,
+        "title": "Астрахань",
+        "region": "Астраханская область",
+        "translit": "Astrakhan"
+    },
+    {
+        "id": 24,
+        "title": "Балашиха",
+        "area": "Городской округ Балашиха район",
+        "region": "Московская область",
+        "translit": "Balashikha"
+    },
+    {
+        "id": 25,
+        "title": "Барнаул",
+        "region": "Алтайский край",
+        "translit": "Barnaul"
+    },
+    {
+        "id": 26,
+        "title": "Белгород",
+        "region": "Белгородская область",
+        "translit": "Belgorod"
+    },
+    {
+        "id": 27,
+        "title": "Бийск",
+        "area": "Городской округ Бийск район",
+        "region": "Алтайский край",
+        "translit": "Biysk"
+    },
+    {
+        "id": 30,
+        "title": "Благовещенск",
+        "area": "Городской округ Благовещенск район",
+        "region": "Амурская область",
+        "translit": "Blagoveshchensk"
+    },
+    {
+        "id": 32,
+        "title": "Братск",
+        "region": "Иркутская область",
+        "translit": "Bratsk"
+    },
+    {
+        "id": 33,
+        "title": "Брянск",
+        "region": "Брянская область",
+        "translit": "Bryansk"
+    },
+    {
+        "id": 34,
+        "title": "Великие Луки",
+        "region": "Псковская область",
+        "translit": "Velikiye Luki"
+    },
+    {
+        "id": 35,
+        "title": "Великий Новгород",
+        "region": "Новгородская область",
+        "important": 1,
+        "translit": "Velikiy Novgorod"
+    },
+    {
+        "id": 37,
+        "title": "Владивосток",
+        "area": "Владивостокский городской округ район",
+        "region": "Приморский край",
+        "important": 1,
+        "translit": "Vladivostok"
+    },
+    {
+        "id": 38,
+        "title": "Владикавказ",
+        "region": "Северная Осетия — Алания",
+        "translit": "Vladikavkaz"
+    },
+    {
+        "id": 39,
+        "title": "Владимир",
+        "region": "Владимирская область",
+        "translit": "Vladimir"
+    },
+    {
+        "id": 40,
+        "title": "Волжский",
+        "region": "Волгоградская область",
+        "translit": "Volzhskiy"
+    },
+    {
+        "id": 41,
+        "title": "Вологда",
+        "region": "Вологодская область",
+        "translit": "Vologda"
+    },
+    {
+        "id": 42,
+        "title": "Воронеж",
+        "region": "Воронежская область",
+        "translit": "Voronezh"
+    },
+    {
+        "id": 45,
+        "title": "Глазов",
+        "region": "Удмуртская",
+        "translit": "Glazov"
+    },
+    {
+        "id": 49,
+        "title": "Екатеринбург",
+        "region": "Свердловская область",
+        "important": 1,
+        "translit": "Yekaterinburg"
+    },
+    {
+        "id": 52,
+        "title": "Ессентуки",
+        "region": "Ставропольский край",
+        "translit": "Yessentuki"
+    },
+    {
+        "id": 53,
+        "title": "Жуковский",
+        "region": "Московская область",
+        "translit": "Zhukovskiy"
+    },
+    {
+        "id": 56,
+        "title": "Ижевск",
+        "region": "Удмуртская",
+        "translit": "Izhevsk"
+    },
+    {
+        "id": 57,
+        "title": "Иркутск",
+        "region": "Иркутская область",
+        "translit": "Irkutsk"
+    },
+    {
+        "id": 59,
+        "title": "Йошкар-Ола",
+        "area": "Городской округ Йошкар-Ола район",
+        "region": "Марий Эл",
+        "translit": "Yoshkar-Ola"
+    },
+    {
+        "id": 60,
+        "title": "Казань",
+        "region": "Татарстан",
+        "important": 1,
+        "translit": "Kazan"
+    },
+    {
+        "id": 61,
+        "title": "Калининград",
+        "region": "Калининградская область",
+        "important": 1,
+        "translit": "Kaliningrad"
+    },
+    {
+        "id": 62,
+        "title": "Калуга",
+        "region": "Калужская область",
+        "translit": "Kaluga"
+    },
+    {
+        "id": 64,
+        "title": "Кемерово",
+        "region": "Кемеровская область",
+        "translit": "Kemerovo"
+    },
+    {
+        "id": 66,
+        "title": "Киров",
+        "area": "Городской округ Киров район",
+        "region": "Кировская область",
+        "translit": "Kirov"
+    },
+    {
+        "id": 67,
+        "title": "Кисловодск",
+        "region": "Ставропольский край",
+        "translit": "Kislovodsk"
+    },
+    {
+        "id": 68,
+        "title": "Ковров",
+        "region": "Владимирская область",
+        "translit": "Kovrov"
+    },
+    {
+        "id": 69,
+        "title": "Коломна",
+        "area": "Городской округ Коломна район",
+        "region": "Московская область",
+        "translit": "Kolomna"
+    },
+    {
+        "id": 70,
+        "title": "Комсомольск-на-Амуре",
+        "region": "Хабаровский край",
+        "translit": "Komsomolsk-na-Amure"
+    },
+    {
+        "id": 71,
+        "title": "Кострома",
+        "region": "Костромская область",
+        "translit": "Kostroma"
+    },
+    {
+        "id": 72,
+        "title": "Краснодар",
+        "area": "Городской округ Краснодар район",
+        "region": "Краснодарский край",
+        "important": 1,
+        "translit": "Krasnodar"
+    },
+    {
+        "id": 73,
+        "title": "Красноярск",
+        "region": "Красноярский край",
+        "important": 1,
+        "translit": "Krasnoyarsk"
+    },
+    {
+        "id": 74,
+        "title": "Курган",
+        "region": "Курганская область",
+        "translit": "Kurgan"
+    },
+    {
+        "id": 75,
+        "title": "Курск",
+        "region": "Курская область",
+        "translit": "Kursk"
+    },
+    {
+        "id": 76,
+        "title": "Кызыл",
+        "region": "Тыва",
+        "translit": "Kyzyl"
+    },
+    {
+        "id": 78,
+        "title": "Липецк",
+        "region": "Липецкая область",
+        "translit": "Lipetsk"
+    },
+    {
+        "id": 80,
+        "title": "Люберцы",
+        "area": "Городской округ Люберцы район",
+        "region": "Московская область",
+        "translit": "Lyubertsy"
+    },
+    {
+        "id": 81,
+        "title": "Магадан",
+        "area": "Городской округ Магадан район",
+        "region": "Магаданская область",
+        "translit": "Magadan"
+    },
+    {
+        "id": 82,
+        "title": "Магнитогорск",
+        "region": "Челябинская область",
+        "translit": "Magnitogorsk"
+    },
+    {
+        "id": 83,
+        "title": "Майкоп",
+        "area": "Городской округ Майкоп район",
+        "region": "Адыгея",
+        "translit": "Maykop"
+    },
+    {
+        "id": 85,
+        "title": "Махачкала",
+        "region": "Дагестан",
+        "translit": "Makhachkala"
+    },
+    {
+        "id": 87,
+        "title": "Мурманск",
+        "region": "Мурманская область",
+        "important": 1,
+        "translit": "Murmansk"
+    },
+    {
+        "id": 88,
+        "title": "Набережные Челны",
+        "region": "Татарстан",
+        "translit": "Naberezhnyye Chelny"
+    },
+    {
+        "id": 89,
+        "title": "Назрань",
+        "region": "Ингушетия",
+        "translit": "Nazran"
+    },
+    {
+        "id": 90,
+        "title": "Нальчик",
+        "region": "Кабардино-Балкарская",
+        "translit": "Nalchik"
+    },
+    {
+        "id": 91,
+        "title": "Находка",
+        "area": "Находкинский городской округ район",
+        "region": "Приморский край",
+        "translit": "Nakhodka"
+    },
+    {
+        "id": 92,
+        "title": "Невинномысск",
+        "region": "Ставропольский край",
+        "translit": "Nevinnomyssk"
+    },
+    {
+        "id": 93,
+        "title": "Нижневартовск",
+        "region": "Ханты-Мансийский Автономный округ - Югра АО",
+        "translit": "Nizhnevartovsk"
+    },
+    {
+        "id": 94,
+        "title": "Нижнекамск",
+        "area": "Нижнекамский район",
+        "region": "Татарстан",
+        "translit": "Nizhnekamsk"
+    },
+    {
+        "id": 95,
+        "title": "Нижний Новгород",
+        "area": "Городской округ Нижний Новгород район",
+        "region": "Нижегородская область",
+        "important": 1,
+        "translit": "Nizhniy Novgorod"
+    },
+    {
+        "id": 96,
+        "title": "Нижний Тагил",
+        "region": "Свердловская область",
+        "translit": "Nizhniy Tagil"
+    },
+    {
+        "id": 97,
+        "title": "Новокузнецк",
+        "region": "Кемеровская область",
+        "translit": "Novokuznetsk"
+    },
+    {
+        "id": 98,
+        "title": "Новороссийск",
+        "area": "Городской округ Новороссийск район",
+        "region": "Краснодарский край",
+        "translit": "Novorossiysk"
+    },
+    {
+        "id": 99,
+        "title": "Новосибирск",
+        "region": "Новосибирская область",
+        "important": 1,
+        "translit": "Novosibirsk"
+    },
+    {
+        "id": 100,
+        "title": "Новоуральск",
+        "region": "Свердловская область",
+        "translit": "Novouralsk"
+    },
+    {
+        "id": 101,
+        "title": "Новочеркасск",
+        "region": "Ростовская область",
+        "translit": "Novocherkassk"
+    },
+    {
+        "id": 102,
+        "title": "Норильск",
+        "area": "Городской округ Норильск район",
+        "region": "Красноярский край",
+        "translit": "Norilsk"
+    },
+    {
+        "id": 103,
+        "title": "Обнинск",
+        "region": "Калужская область",
+        "translit": "Obninsk"
+    },
+    {
+        "id": 104,
+        "title": "Омск",
+        "region": "Омская область",
+        "important": 1,
+        "translit": "Omsk"
+    },
+    {
+        "id": 105,
+        "title": "Орёл",
+        "region": "Орловская область",
+        "translit": "Orel"
+    },
+    {
+        "id": 106,
+        "title": "Оренбург",
+        "area": "Городской округ Оренбург район",
+        "region": "Оренбургская область",
+        "translit": "Orenburg"
+    },
+    {
+        "id": 107,
+        "title": "Орехово-Зуево",
+        "area": "Орехово-Зуевский городской округ район",
+        "region": "Московская область",
+        "translit": "Orekhovo-Zuyevo"
+    },
+    {
+        "id": 108,
+        "title": "Орск",
+        "area": "Городской округ Орск район",
+        "region": "Оренбургская область",
+        "translit": "Orsk"
+    },
+    {
+        "id": 109,
+        "title": "Пенза",
+        "region": "Пензенская область",
+        "translit": "Penza"
+    },
+    {
+        "id": 110,
+        "title": "Пермь",
+        "region": "Пермский край",
+        "translit": "Perm"
+    },
+    {
+        "id": 112,
+        "title": "Петрозаводск",
+        "region": "Карелия",
+        "translit": "Petrozavodsk"
+    },
+    {
+        "id": 113,
+        "title": "Петропавловск-Камчатский",
+        "region": "Камчатский край",
+        "translit": "Petropavlovsk-Kamchatskiy"
+    },
+    {
+        "id": 114,
+        "title": "Псков",
+        "region": "Псковская область",
+        "translit": "Pskov"
+    },
+    {
+        "id": 116,
+        "title": "Пятигорск",
+        "region": "Ставропольский край",
+        "translit": "Pyatigorsk"
+    },
+    {
+        "id": 117,
+        "title": "Раменское",
+        "area": "Раменский городской округ район",
+        "region": "Московская область",
+        "translit": "Ramenskoye"
+    },
+    {
+        "id": 119,
+        "title": "Ростов-на-Дону",
+        "region": "Ростовская область",
+        "important": 1,
+        "translit": "Rostov-na-Donu"
+    },
+    {
+        "id": 121,
+        "title": "Рыбинск",
+        "area": "Рыбинский район",
+        "region": "Ярославская область",
+        "translit": "Rybinsk"
+    },
+    {
+        "id": 122,
+        "title": "Рязань",
+        "region": "Рязанская область",
+        "important": 1,
+        "translit": "Ryazan"
+    },
+    {
+        "id": 123,
+        "title": "Самара",
+        "region": "Самарская область",
+        "important": 1,
+        "translit": "Samara"
+    },
+    {
+        "id": 124,
+        "title": "Саранск",
+        "area": "Городской округ Саранск район",
+        "region": "Мордовия",
+        "translit": "Saransk"
+    },
+    {
+        "id": 125,
+        "title": "Саратов",
+        "region": "Саратовская область",
+        "important": 1,
+        "translit": "Saratov"
+    },
+    {
+        "id": 126,
+        "title": "Северск",
+        "region": "Томская область",
+        "translit": "Seversk"
+    },
+    {
+        "id": 130,
+        "title": "Смоленск",
+        "region": "Смоленская область",
+        "translit": "Smolensk"
+    },
+    {
+        "id": 132,
+        "title": "Соликамск",
+        "region": "Пермский край",
+        "translit": "Solikamsk"
+    },
+    {
+        "id": 133,
+        "title": "Сочи",
+        "area": "Городской округ Сочи район",
+        "region": "Краснодарский край",
+        "translit": "Sochi"
+    },
+    {
+        "id": 134,
+        "title": "Ставрополь",
+        "region": "Ставропольский край",
+        "translit": "Stavropol"
+    },
+    {
+        "id": 135,
+        "title": "Стерлитамак",
+        "region": "Башкортостан",
+        "translit": "Sterlitamak"
+    },
+    {
+        "id": 136,
+        "title": "Сургут",
+        "region": "Ханты-Мансийский Автономный округ - Югра АО",
+        "translit": "Surgut"
+    },
+    {
+        "id": 138,
+        "title": "Сыктывкар",
+        "area": "Городской округ Сыктывкар район",
+        "region": "Коми",
+        "translit": "Syktyvkar"
+    },
+    {
+        "id": 139,
+        "title": "Таганрог",
+        "region": "Ростовская область",
+        "translit": "Taganrog"
+    },
+    {
+        "id": 140,
+        "title": "Тамбов",
+        "region": "Тамбовская область",
+        "translit": "Tambov"
+    },
+    {
+        "id": 141,
+        "title": "Тверь",
+        "area": "Калининский район",
+        "region": "Тверская область",
+        "translit": "Tver"
+    },
+    {
+        "id": 143,
+        "title": "Тольятти",
+        "region": "Самарская область",
+        "translit": "Tolyatti"
+    },
+    {
+        "id": 144,
+        "title": "Томск",
+        "region": "Томская область",
+        "translit": "Tomsk"
+    },
+    {
+        "id": 146,
+        "title": "Тула",
+        "region": "Тульская область",
+        "translit": "Tula"
+    },
+    {
+        "id": 147,
+        "title": "Тюмень",
+        "region": "Тюменская область",
+        "translit": "Tyumen"
+    },
+    {
+        "id": 148,
+        "title": "Улан-Удэ",
+        "region": "Бурятия",
+        "translit": "Ulan-Ude"
+    },
+    {
+        "id": 149,
+        "title": "Ульяновск",
+        "region": "Ульяновская область",
+        "translit": "Ulyanovsk"
+    },
+    {
+        "id": 150,
+        "title": "Уссурийск",
+        "area": "Уссурийский городской округ район",
+        "region": "Приморский край",
+        "translit": "Ussuriysk"
+    },
+    {
+        "id": 151,
+        "title": "Уфа",
+        "area": "Городской округ Уфа район",
+        "region": "Башкортостан",
+        "important": 1,
+        "translit": "Ufa"
+    },
+    {
+        "id": 153,
+        "title": "Хабаровск",
+        "region": "Хабаровский край",
+        "important": 1,
+        "translit": "Khabarovsk"
+    },
+    {
+        "id": 156,
+        "title": "Чайковский",
+        "area": "Чайковский городской округ район",
+        "region": "Пермский край",
+        "translit": "Chaykovskiy"
+    },
+    {
+        "id": 157,
+        "title": "Чебоксары",
+        "region": "Чувашская",
+        "translit": "Cheboksary"
+    },
+    {
+        "id": 158,
+        "title": "Челябинск",
+        "region": "Челябинская область",
+        "important": 1,
+        "translit": "Chelyabinsk"
+    },
+    {
+        "id": 159,
+        "title": "Черкесск",
+        "region": "Карачаево-Черкесская",
+        "translit": "Cherkessk"
+    },
+    {
+        "id": 160,
+        "title": "Грозный",
+        "region": "Чеченская",
+        "translit": "Groznyy"
+    },
+    {
+        "id": 161,
+        "title": "Чита",
+        "region": "Забайкальский край",
+        "translit": "Chita"
+    },
+    {
+        "id": 166,
+        "title": "Элиста",
+        "region": "Калмыкия",
+        "translit": "Elista"
+    },
+    {
+        "id": 167,
+        "title": "Южно-Сахалинск",
+        "region": "Сахалинская область",
+        "translit": "Yuzhno-Sakhalinsk"
+    },
+    {
+        "id": 168,
+        "title": "Якутск",
+        "region": "Саха (Якутия)",
+        "translit": "Yakutsk"
+    },
+    {
+        "id": 169,
+        "title": "Ярославль",
+        "region": "Ярославская область",
+        "translit": "Yaroslavl"
+    },
+    {
+        "id": 171,
+        "title": "Дербент",
+        "region": "Дагестан",
+        "translit": "Derbent"
+    },
+    {
+        "id": 182,
+        "title": "Тобольск",
+        "region": "Тюменская область",
+        "translit": "Tobolsk"
+    },
+    {
+        "id": 243,
+        "title": "Нефтекамск",
+        "area": "Городской округ Нефтекамск район",
+        "region": "Башкортостан",
+        "translit": "Neftekamsk"
+    },
+    {
+        "id": 264,
+        "title": "Салават",
+        "region": "Башкортостан",
+        "translit": "Salavat"
+    },
+    {
+        "id": 270,
+        "title": "Подольск",
+        "area": "Городской округ Подольск район",
+        "region": "Московская область",
+        "translit": "Podolsk"
+    },
+    {
+        "id": 274,
+        "title": "Старый Оскол",
+        "area": "Старооскольский район",
+        "region": "Белгородская область",
+        "translit": "Staryy Oskol"
+    },
+    {
+        "id": 312,
+        "title": "Мытищи",
+        "area": "Городской округ Мытищи район",
+        "region": "Московская область",
+        "translit": "Mytishchi"
+    },
+    {
+        "id": 328,
+        "title": "Каменск-Шахтинский",
+        "region": "Ростовская область",
+        "translit": "Kamensk-Shakhtinskiy"
+    },
+    {
+        "id": 340,
+        "title": "Серпухов",
+        "area": "Городской округ Серпухов район",
+        "region": "Московская область",
+        "translit": "Serpukhov"
+    },
+    {
+        "id": 382,
+        "title": "Нефтеюганск",
+        "region": "Ханты-Мансийский Автономный округ - Югра АО",
+        "translit": "Nefteyugansk"
+    },
+    {
+        "id": 403,
+        "title": "Ноябрьск",
+        "region": "Ямало-Ненецкий  АО",
+        "translit": "Noyabrsk"
+    },
+    {
+        "id": 424,
+        "title": "Рубцовск",
+        "region": "Алтайский край",
+        "translit": "Rubtsovsk"
+    },
+    {
+        "id": 431,
+        "title": "Саров",
+        "region": "Нижегородская область",
+        "translit": "Sarov"
+    },
+    {
+        "id": 459,
+        "title": "Реутов",
+        "region": "Московская область",
+        "translit": "Reutov"
+    },
+    {
+        "id": 461,
+        "title": "Новошахтинск",
+        "region": "Ростовская область",
+        "translit": "Novoshakhtinsk"
+    },
+    {
+        "id": 468,
+        "title": "Прокопьевск",
+        "region": "Кемеровская область",
+        "translit": "Prokopyevsk"
+    },
+    {
+        "id": 476,
+        "title": "Димитровград",
+        "region": "Ульяновская область",
+        "translit": "Dimitrovgrad"
+    },
+    {
+        "id": 479,
+        "title": "Кузнецк",
+        "region": "Пензенская область",
+        "translit": "Kuznetsk"
+    },
+    {
+        "id": 483,
+        "title": "Красногорск",
+        "area": "Городской округ Красногорск район",
+        "region": "Московская область",
+        "translit": "Krasnogorsk"
+    },
+    {
+        "id": 501,
+        "title": "Сарапул",
+        "region": "Удмуртская",
+        "translit": "Sarapul"
+    },
+    {
+        "id": 542,
+        "title": "Камышин",
+        "region": "Волгоградская область",
+        "translit": "Kamyshin"
+    },
+    {
+        "id": 545,
+        "title": "Зеленодольск",
+        "area": "Зеленодольский район",
+        "region": "Татарстан",
+        "translit": "Zelenodolsk"
+    },
+    {
+        "id": 580,
+        "title": "Электросталь",
+        "area": "Городской округ Электросталь район",
+        "region": "Московская область",
+        "translit": "Elektrostal"
+    },
+    {
+        "id": 593,
+        "title": "Воскресенск",
+        "area": "Городской округ Воскресенск район",
+        "region": "Московская область",
+        "translit": "Voskresensk"
+    },
+    {
+        "id": 621,
+        "title": "Дзержинск",
+        "area": "Городской округ Дзержинск район",
+        "region": "Нижегородская область",
+        "translit": "Dzerzhinsk"
+    },
+    {
+        "id": 668,
+        "title": "Серов",
+        "region": "Свердловская область",
+        "translit": "Serov"
+    },
+    {
+        "id": 680,
+        "title": "Бугульма",
+        "area": "Бугульминский район",
+        "region": "Татарстан",
+        "translit": "Bugulma"
+    },
+    {
+        "id": 708,
+        "title": "Новотроицк",
+        "area": "Городской округ Новотроицк район",
+        "region": "Оренбургская область",
+        "translit": "Novotroitsk"
+    },
+    {
+        "id": 722,
+        "title": "Ногинск",
+        "area": "Богородский городской округ район",
+        "region": "Московская область",
+        "translit": "Noginsk"
+    },
+    {
+        "id": 728,
+        "title": "Усолье-Сибирское",
+        "region": "Иркутская область",
+        "translit": "Usolye-Sibirskoye"
+    },
+    {
+        "id": 794,
+        "title": "Златоуст",
+        "region": "Челябинская область",
+        "translit": "Zlatoust"
+    },
+    {
+        "id": 807,
+        "title": "Муром",
+        "region": "Владимирская область",
+        "translit": "Murom"
+    },
+    {
+        "id": 857,
+        "title": "Долгопрудный",
+        "region": "Московская область",
+        "translit": "Dolgoprudnyy"
+    },
+    {
+        "id": 859,
+        "title": "Королёв",
+        "region": "Московская область",
+        "translit": "Korolev"
+    },
+    {
+        "id": 882,
+        "title": "Ачинск",
+        "area": "Городской округ Ачинск район",
+        "region": "Красноярский край",
+        "translit": "Achinsk"
+    },
+    {
+        "id": 899,
+        "title": "Березники",
+        "region": "Пермский край",
+        "translit": "Berezniki"
+    },
+    {
+        "id": 952,
+        "title": "Сызрань",
+        "region": "Самарская область",
+        "translit": "Syzran"
+    },
+    {
+        "id": 964,
+        "title": "Новомосковск",
+        "area": "Новомосковский район",
+        "region": "Тульская область",
+        "translit": "Novomoskovsk"
+    },
+    {
+        "id": 1036,
+        "title": "Усть-Илимск",
+        "region": "Иркутская область",
+        "translit": "Ust-Ilimsk"
+    },
+    {
+        "id": 1100,
+        "title": "Воткинск",
+        "region": "Удмуртская",
+        "translit": "Votkinsk"
+    },
+    {
+        "id": 1133,
+        "title": "Бердск",
+        "region": "Новосибирская область",
+        "translit": "Berdsk"
+    },
+    {
+        "id": 1142,
+        "title": "Железногорск",
+        "area": "Городской округ ЗАТО Железногорск район",
+        "region": "Красноярский край",
+        "translit": "Zheleznogorsk"
+    },
+    {
+        "id": 1386,
+        "title": "Сергиев Посад",
+        "area": "Сергиево-Посадский городской округ район",
+        "region": "Московская область",
+        "translit": "Sergiyev Posad"
+    },
+    {
+        "id": 1469,
+        "title": "Энгельс",
+        "region": "Саратовская область",
+        "translit": "Engels"
+    },
+    {
+        "id": 1489,
+        "title": "Новокуйбышевск",
+        "region": "Самарская область",
+        "translit": "Novokuybyshevsk"
+    },
+    {
+        "id": 1519,
+        "title": "Гатчина",
+        "area": "Гатчинский район",
+        "region": "Ленинградская область",
+        "translit": "Gatchina"
+    },
+    {
+        "id": 1573,
+        "title": "Каменск-Уральский",
+        "region": "Свердловская область",
+        "translit": "Kamensk-Uralskiy"
+    },
+    {
+        "id": 1809,
+        "title": "Ленинск-Кузнецкий",
+        "area": "Ленинск-Кузнецкий городской округ район",
+        "region": "Кемеровская область",
+        "translit": "Leninsk-Kuznetskiy"
+    },
+    {
+        "id": 1930,
+        "title": "Канск",
+        "region": "Красноярский край",
+        "translit": "Kansk"
+    },
+    {
+        "id": 1997,
+        "title": "Колпино",
+        "region": "Санкт-Петербург город",
+        "translit": "Kolpino"
+    },
+    {
+        "id": 2001,
+        "title": "Первоуральск",
+        "region": "Свердловская область",
+        "translit": "Pervouralsk"
+    },
+    {
+        "id": 2451,
+        "title": "Новочебоксарск",
+        "region": "Чувашская",
+        "translit": "Novocheboksarsk"
+    },
+    {
+        "id": 3102,
+        "title": "Каспийск",
+        "region": "Дагестан",
+        "translit": "Kaspiysk"
+    },
+    {
+        "id": 3425,
+        "title": "Азов",
+        "area": "Азовский район",
+        "region": "Ростовская область",
+        "translit": "Azov"
+    },
+    {
+        "id": 3700,
+        "title": "Волгодонск",
+        "region": "Ростовская область",
+        "translit": "Volgodonsk"
+    },
+    {
+        "id": 3880,
+        "title": "Кинешма",
+        "region": "Ивановская область",
+        "translit": "Kineshma"
+    },
+    {
+        "id": 4712,
+        "title": "Батайск",
+        "region": "Ростовская область",
+        "translit": "Bataysk"
+    },
+    {
+        "id": 5098,
+        "title": "Копейск",
+        "region": "Челябинская область",
+        "translit": "Kopeysk"
+    },
+    {
+        "id": 7159,
+        "title": "Миасс",
+        "region": "Челябинская область",
+        "translit": "Miass"
+    },
+    {
+        "id": 9930,
+        "title": "Балаково",
+        "region": "Саратовская область",
+        "translit": "Balakovo"
+    },
+    {
+        "id": 20950,
+        "title": "Новый Уренгой",
+        "region": "Ямало-Ненецкий  АО",
+        "translit": "Novyy Urengoy"
+    },
+    {
+        "id": 21855,
+        "title": "Мичуринск",
+        "region": "Тамбовская область",
+        "translit": "Michurinsk"
+    },
+    {
+        "id": 1004400,
+        "title": "Пушкино",
+        "area": "Красноярский район",
+        "region": "Астраханская область",
+        "translit": "Pushkino"
+    },
+    {
+        "id": 1009964,
+        "title": "Губкин",
+        "area": "Губкинский район",
+        "region": "Белгородская область",
+        "translit": "Gubkin"
+    },
+    {
+        "id": 1054308,
+        "title": "Домодедово",
+        "area": "Городской округ Домодедово район",
+        "region": "Московская область",
+        "translit": "Domodedovo"
+    },
+    {
+        "id": 1129456,
+        "title": "Междуреченск",
+        "area": "Междуреченский городской округ район",
+        "region": "Кемеровская область",
+        "translit": "Mezhdurechensk"
+    },
+    {
+        "id": 5422969,
+        "title": "Октябрьский",
+        "area": "Добрянский район",
+        "region": "Пермский край",
+        "translit": "Oktyabrskiy"
+    },
+    {
+        "id": 5426937,
+        "title": "Иваново",
+        "area": "Кимрский район",
+        "region": "Тверская область",
+        "translit": "Ivanovo"
+    },
+    {
+        "id": 5426994,
+        "title": "Одинцово",
+        "area": "Кимрский район",
+        "region": "Тверская область",
+        "translit": "Odintsovo"
+    }
+]

@@ -1,0 +1,16 @@
+body {
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+    margin: 0;
+    min-height: 100vh;
+    background: #333333;
+}
+
+canvas {
+    max-width: 90vmin;
+    max-height: 90vmin;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
+    background: #BFE2FF;
+}

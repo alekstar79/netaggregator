@@ -1,0 +1,14 @@
+{
+  "manager": "Manager",
+  "file_created": "File was created",
+  "folder_created": "Folder was created",
+  "files_uploaded": "Files uploaded",
+  "file_uploaded": "File uploaded",
+  "renamed": "Renamed",
+  "removed": "Removed",
+  "done": "Done",
+  "folder_name": "Folder name",
+  "file_name": "File name",
+  "new_folder": "New folder",
+  "new_file": "New file"
+}

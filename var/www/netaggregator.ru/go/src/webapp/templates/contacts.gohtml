@@ -1,0 +1,16 @@
+{{ define "contacts" }}
+{{ template "header" }}
+<main class="px-3">
+    <h1 class="cover-heading">Signs list</h1>
+
+    {{ range . }}
+        <p class="lead">{{ .ViewSigna }}</p>
+        <a href="/signa/{{ .Id }}">
+            {{ .Img }}
+        </a>
+    {{ else }}
+        <p class="lead">No signs</p>
+    {{ end }}
+</main>
+{{ template "footer" }}
+{{ end }}

@@ -1,0 +1,31 @@
+#tetris {
+    display: inline-block;
+    width: 264px;
+    height: 440px;
+    border: 2px solid #000;
+    line-height: 0;
+    background: #000;
+}
+#tetris b, #tetris i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    border: 1px solid #333;
+}
+#tetris i {
+    background: #fff;
+    border-color: #999;
+}
+#start-btn {
+    display: block;
+    width: 30%;
+    margin: 70% auto 0;
+    padding: 20px;
+    background: #eee;
+    text-align: center;
+    cursor: pointer;
+}
+#start-btn:hover {
+    background: #fff;
+}

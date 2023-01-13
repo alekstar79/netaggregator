@@ -1,0 +1,23 @@
+<tr class="lightgray" data-path="{{ item.path ?? path }}">
+    <td class="ab-tdfolder">
+        <div class="closed">{{ item.name }}</div>
+    </td>
+    <td><small>{{ item.size }}</small></td>
+    <td>
+        <button class="ab-btn red delete-directory" title="{{ lng.delete }}">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn blue renamefolder" title="{{ lng.rename }}">
+            <i class="fa fa-random" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn blue copy" title="{{ lng.copy }}">
+            <i class="fa fa-copy" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn blue cut" title="{{ lng.cut }}">
+            <i class="fa fa-scissors" aria-hidden="true"></i>
+        </button>
+        <button class="ab-btn asphalt downloadfolder" title="{{ lng.zip_and_download }}">
+            <i class="fa fa-download" aria-hidden="true"></i>
+        </button>
+    </td>
+</tr>

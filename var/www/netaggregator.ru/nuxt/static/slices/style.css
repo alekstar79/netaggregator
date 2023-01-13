@@ -1,0 +1,9 @@
+body {
+  height: 100vh;
+  background: url(https://res.cloudinary.com/marcofugaro/image/upload/v1570113726/simone-hutsch-skyscrapers_n7vgyi.jpg) center center;
+  background-size: cover;
+}
+
+canvas {
+  display: block;
+}

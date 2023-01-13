@@ -1,0 +1,5 @@
+# IDE / Editor
+.idea
+
+# Python Virtual Environment
+venv

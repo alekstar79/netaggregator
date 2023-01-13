@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Usage
+if [ $# -ne 1 ]; then
+  echo "Usage: switch_php [phpversion]"
+  echo "Example: switch_php 7.4"
+  exit 1
+fi
+
+currentversion="`php -r \"error_reporting(0); echo str_replace('.', '', substr(phpversion(), 0, 3));\"`"
+newversion="$1"
+
+majorOld=${currentversion:0:1}
+minorOld=${currentversion:1:1}
+majorNew=${newversion:0:1}
+minorNew=${newversion:2:1}
+
+if [ $? -eq 0 ]; then
+  if [ "${newversion}" == "${currentversion}" ]; then
+    echo "PHP version [${newversion}] is already being used"
+    exit 1
+  fi
+
+  echo "PHP version [$newversion] found"
+  echo "Switching from [php${currentversion}] to [php${newversion}] ... "
+
+  # printf "a2dismod php$majorOld.$minorOld ... "
+  # sudo a2dismod "php${majorOld}.${minorOld}"
+  # printf "[OK] and "
+
+  # printf "a2enmod php${newversion} ... "
+  # sudo a2enmod "php${majorNew}.${minorNew}"
+  # printf "[OK]\n"
+
+  printf "update-alternatives ... "
+  sudo update-alternatives --set php "/usr/bin/php${majorNew}.${minorNew}"
+  printf "[OK]\n"
+
+  sudo service php7.4-fpm restart
+  printf "[OK] fpm restarted\n"
+
+  # sudo service apache2 restart
+  # printf "[OK] apache2 restarted\n"
+else
+  echo "PHP version $majorNew.$minorNew was not found."
+  echo "Try \`sudo apt install php@${newversion}\` first."
+  exit 1
+fi
+
+echo "DONE!"

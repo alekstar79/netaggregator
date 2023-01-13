@@ -1,0 +1,146 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+
+// @see https://github.com/nuxt-community/vuetify-module#customvariables
+// @see https://github.com/nuxt-community/style-resources-module/
+
+// Glitch effect
+// @see https://habr.com/ru/post/236263
+// @see https://css-tricks.com/glitch-effect-text-images-svg
+// @see https://codepen.io/chriscoyier/pen/XWrNyZy?editors=0110
+// @see https://codepen.io/chriscoyier/pen/RwboqMr
+// @see https://codepen.io/anna_blok/pen/XOGjJP
+
+$basic-bg-color: #f5f5f5;
+$steps: 10;
+
+/* @-moz-keyframes loader {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0); }
+}
+@-webkit-keyframes loader {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0); }
+}
+@-o-keyframes loader {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0); }
+} */
+@keyframes loader {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0); }
+}
+
+@for $i from 1 through 2 {
+    @keyframes glitch-anim-#{$i} {
+        @for $i from 0 through $steps {
+            $top: random(100);
+            $bottom: random(101 - $top);
+            #{percentage($i * (1 / $steps))} {
+                clip-path: inset(#{$top} + '%' 0 #{$bottom} + '%' 0);
+            }
+        }
+    }
+}
+
+@mixin placeholder($color, $size: 16px, $opacity: 1) {
+    input::-webkit-input-placeholder { // WebKit, Blink, Edge
+        font-size: $size !important;
+        color: $color !important;
+        opacity: $opacity !important;
+    }
+    input:-moz-placeholder { // Firefox 4 to 18
+        font-size: $size !important;
+        color: $color !important;
+        opacity: $opacity !important;
+    }
+    input::-moz-placeholder { // Firefox 19+
+        font-size: $size !important;
+        color: $color !important;
+        opacity: $opacity !important;
+    }
+    input:-ms-input-placeholder { // IE 10-11
+        font-size: $size !important;
+        color: $color !important;
+        opacity: $opacity !important;
+    }
+    input::-ms-input-placeholder { // Edge
+        font-size: $size !important;
+        color: $color !important;
+        opacity: $opacity !important;
+    }
+    input::placeholder { // Modern browsers
+        font-size: $size !important;
+        color: $color !important;
+        opacity: $opacity !important;
+    }
+}
+
+@mixin textGlitch($color, $background, $highlightColor1, $highlightColor2) {
+    position: relative;
+    color: $color;
+
+    &::before,
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        width: 100%;
+
+        background: $background;
+    }
+    &::after {
+        left: 2px;
+        text-shadow: -1px 0 $highlightColor1;
+        animation: glitch-anim-1 3s infinite linear alternate-reverse;
+    }
+    &::before {
+        left: -2px;
+        text-shadow: 2px 0 $highlightColor2;
+        animation: glitch-anim-2 5s infinite linear alternate-reverse;
+    }
+}
+
+@mixin imgGlitch($width, $height, $top, $left) {
+
+    > img {
+        position: absolute;
+        top: $top+px;
+        left: $left+px;
+    }
+    > img:nth-child(2),
+    > img:nth-child(3){
+    }
+    > img:nth-child(2) {
+        left: ($left + 2) + px;
+        animation: glitch-anim-1 3s infinite linear alternate-reverse;
+    }
+    > img:nth-child(3) {
+        left: ($left - 2) + px;
+        animation: glitch-anim-2 5s infinite linear alternate-reverse;
+    }
+}
+
+@mixin svgGlitch($fillColor, $background, $fillHighlight1, $fillHighlight2, $width, $height, $top, $left) {
+
+    > svg {
+        position: absolute;
+        top: $top;
+        left: $left;
+        fill: $fillColor;
+        background: $background;
+        width: $width;
+        height: $height;
+    }
+    > svg:nth-child(2),
+    > svg:nth-child(3) {
+    }
+    > svg:nth-child(2) {
+        fill: $fillHighlight1;
+        left: ($left - 2) + px;
+        animation: glitch-anim-1 3s infinite linear alternate-reverse;
+    }
+    > svg:nth-child(3) {
+        fill: $fillHighlight2;
+        left: ($left + 2) + px;
+        animation: glitch-anim-2 5s infinite linear alternate-reverse;
+    }
+}

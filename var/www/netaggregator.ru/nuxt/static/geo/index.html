@@ -1,0 +1,86 @@
+<!--suppress JSUnresolvedLibraryURL, TypeScriptUMDGlobal -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="//unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin=""/>
+
+    <title>GEO</title>
+
+    <style>
+      #map {
+        height: 450px;
+      }
+
+      button {
+        min-height: 2em;
+      }
+    </style>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+    <script src="//unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""></script>
+</head>
+<body>
+<button type="button" id="getAccessButton">GET LOW ACCURACY LOCATION</button>
+<button type="button" id="getHighAccessButton">GET HIGH ACCURACY ACCESS</button>
+
+<h2 id="resultTitle"></h2>
+<pre id="result" style="border: 1px solid #AAA; padding: 10px;"></pre>
+
+<h2>Map</h2>
+<div id="map"></div>
+
+<script>
+  const mymap = L.map('map').setView([33.777603, -84.389371], 13)
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    accessToken: 'pk.eyJ1IjoiY2V6YXJ5dHJ1c3RzdGFtcCIsImEiOiJjazZodGd3OGwxZG9qM2VudmVrbGxyYzVoIn0.XkEVgAqpqwq-gjfJy6lDow',
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/streets-v11'
+  }).addTo(mymap)
+
+  const setMap = ({latitude, longitude, accuracy}) => {
+    mymap.setView([latitude, longitude], 13);
+
+    const circle = L.circle([latitude, longitude], {
+      color: 'green',
+      fillColor: '#0f0',
+      fillOpacity: 0.5,
+      radius: accuracy
+    }).addTo(mymap);
+
+
+    const group = new L.featureGroup([circle])
+
+    mymap.fitBounds(group.getBounds())
+  }
+
+  const updateResults = (value, title = 'Results') => {
+    resultTitle.innerText = title
+    result.innerText = JSON.stringify(value, null, 2)
+  }
+
+  const success = ({coords}) => {
+    const coordsKeys = Object.keys(coords.constructor.prototype),
+      finalCoords = _.pick(coords, coordsKeys)
+
+    setMap(finalCoords)
+    updateResults(finalCoords, 'Result: SUCCESS')
+  }
+
+  const error = (err) => {
+    updateResults(err, 'Result: ERROR')
+  }
+
+  getAccessButton.onclick = () => {
+    updateResults('', 'PENDING')
+    navigator.geolocation.getCurrentPosition(success, error, {enableHighAccuracy: false})
+  }
+
+  getHighAccessButton.onclick = () => {
+    updateResults('', 'PENDING')
+    navigator.geolocation.getCurrentPosition(success, error, {enableHighAccuracy: true})
+  }
+</script>
+</body>
+</html>

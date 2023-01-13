@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /*noindex*
+Crawl-Delay: 5
+
+User-agent: GoogleBot
+Allow: /
+Disallow: /img/articles/
+Disallow: /dcover/
+Disallow: /*.png&*
+
+User-agent: Yandex
+Allow: /
+Disallow: /img/articles/
+Disallow: /dcover/
+Disallow: /*.png&*
+Crawl-Delay: 1
+
+Clean-Param: vk_access_token_settings&vk_app_id&vk_are_notifications_enabled&vk_is_app_user&vk_is_favorite&vk_language&vk_platform&vk_ref&vk_ts&vk_user_id&sign
+
+Sitemap: https://netaggregator.ru/sitemap.xml
+Host: https://netaggregator.ru

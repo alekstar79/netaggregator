@@ -1,0 +1,14 @@
+{
+  "manager": "Менеджер",
+  "file_created": "Файл создан",
+  "folder_created": "Каталог создан",
+  "files_uploaded": "Файлы загружены",
+  "file_uploaded": "Файл загружен",
+  "renamed": "Переименовано",
+  "removed": "Удалено",
+  "done": "Выполнено",
+  "folder_name": "Название папки",
+  "file_name": "Название файла",
+  "new_folder": "Новая папка",
+  "new_file": "Новый файл"
+}

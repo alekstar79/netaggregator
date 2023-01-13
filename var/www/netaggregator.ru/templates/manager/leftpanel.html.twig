@@ -1,0 +1,9 @@
+{% import '@manager/recursive.html.twig' as recursive %}
+{% set name = root|trim('/')|split('/')|last %}
+
+<div id="leftpanel" class="ab-col4">
+    <div id="tree">
+        <div id="home" data-fo="{{root}}" class="closed selected">{{name}}</div>
+            {{ recursive.list(tree, root) }}
+    </div>
+</div>

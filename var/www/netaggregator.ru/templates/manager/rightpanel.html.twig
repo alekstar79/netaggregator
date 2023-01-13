@@ -1,0 +1,29 @@
+<table id="ab-list-pages">
+    <thead>
+        <tr>
+            {% if dir is defined %}
+                <th>{{ dir|replace({ (root): '/' }) }}</th>
+            {% else %}
+                <th>/</th>
+            {% endif %}
+            <th>{{ lng.file_size }}</th>
+            <th>{{ lng.action }}</th>
+        </tr>
+    </thead>
+
+    {% for item in table %}
+        {% if item.type == 'dir' %}
+            {% include '@manager/directory.html.twig' %}
+        {% elseif item.type == 'img' %}
+            {% include '@manager/image.html.twig' %}
+        {% elseif item.type == 'vid' %}
+            {% include '@manager/video.html.twig' %}
+        {% elseif item.type == 'pdf' %}
+            {% include '@manager/pdf.html.twig' %}
+        {% elseif item.type == 'edit' %}
+            {% include '@manager/editable.html.twig' %}
+        {% else %}
+            {% include '@manager/regular.html.twig' %}
+        {% endif %}
+    {% endfor %}
+</table>

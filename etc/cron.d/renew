@@ -1,0 +1,1 @@
+0 */12 * * * /var/www/netaggregator.ru/src/App/Service/Stream/concat.sh

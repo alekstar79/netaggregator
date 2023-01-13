@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<title>Flux Slider Demo &#0187; Hardware accelerated image transitions using CSS3</title>
+
+		<link rel="stylesheet" href="css/demo.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="js/flux.min.js"></script>
+
+		<!--suppress JSPotentiallyInvalidConstructorUsage -->
+        <script>
+			$(function() {
+				if (!flux.browser.supportsTransitions) {
+				  alert('Flux Slider requires a browser that supports CSS3 transitions')
+                }
+
+				window.f = new flux.slider('#slider', {
+					pagination: true
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<section class="container">
+			<h1><span class="flux">Flux</span> <span class="slider">Slider</span></h1>
+			<h2>Hardware accelerated image transitions using CSS3.</h2>
+
+			<div id="slider">
+				<img src="img/avatar.jpg" alt="" />
+				<img src="img/ironman.jpg" alt="" />
+				<img src="img/tron.jpg" alt="" />
+				<img src="img/greenhornet.jpg" alt="" />
+			</div>
+
+			<footer>
+				<img src="img/html5.png" alt="HTML5" />
+			</footer>
+		</section>
+	</body>
+</html>

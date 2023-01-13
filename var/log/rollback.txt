@@ -1,0 +1,2 @@
+login:arm64=1:4.8.1-1ubuntu5.20.04.2
+passwd:arm64=1:4.8.1-1ubuntu5.20.04.2
