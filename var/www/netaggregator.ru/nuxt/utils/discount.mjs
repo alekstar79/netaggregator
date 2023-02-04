@@ -7,49 +7,49 @@ export const periods = { 3: .05, 6: .1, 9: .16, 12: .2 }
 
 /* export function getPrice(groups, period, items = [])
 {
-    let extra = 0, price = 0
+  let extra = 0, price = 0
 
-    if (items.includes('cover')) {
-        items = items.filter(srv => srv !== 'designer')
-        price += components.cover
-    }
-    if (items.includes('designer')) {
-        extra += components.designer
-    }
-    if (items.includes('stream')) {
-        extra += components.stream
-    }
-    if (items.includes('widget')) {
-        price += components.widget
-    }
-    if (items.includes('chatbot')) {
-        price += components.chatbot
-    }
+  if (items.includes('cover')) {
+      items = items.filter(srv => srv !== 'designer')
+      price += components.cover
+  }
+  if (items.includes('designer')) {
+      extra += components.designer
+  }
+  if (items.includes('stream')) {
+      extra += components.stream
+  }
+  if (items.includes('widget')) {
+      price += components.widget
+  }
+  if (items.includes('chatbot')) {
+      price += components.chatbot
+  }
 
-    price = groups > 1
-        ? ((price + (.8 * price * (groups - 1))) * period)
-        : price * period
+  price = groups > 1
+      ? ((price + (.8 * price * (groups - 1))) * period)
+      : price * period
 
-    if (groups >= 3) {
-        price *= (1 - getDiscountGroups(groups) / 100)
-    }
+  if (groups >= 3) {
+      price *= (1 - getDiscountGroups(groups) / 100)
+  }
 
-    price += extra
+  price += extra
 
-    return price
+  return price
 } */
 
 export function getDiscountGroups(groups)
 {
-    let discount = 0
+  let discount = 0
 
-    for (const key in discounts) {
-        if (groups >= parseInt(key)) {
-            discount = parseInt(discounts[key])
-        } else {
-            break
-        }
+  for (const key in discounts) {
+    if (groups >= parseInt(key)) {
+      discount = parseInt(discounts[key])
+    } else {
+      break
     }
+  }
 
-    return discount
+  return discount
 }

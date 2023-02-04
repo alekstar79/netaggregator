@@ -1,60 +1,60 @@
 /**
-* Simple JavaScript Throttle/Debounce Function
-* @see https://gist.github.com/nmsdvid/8807205
-*/
+ * Simple JavaScript Throttle/Debounce Function
+ * @see https://gist.github.com/nmsdvid/8807205
+ */
 export class Throttle
 {
-    static TIMEOUT = 1000
+  static TIMEOUT = 1000
 
-    get has()
-    {
-        return typeof this.callback === 'function'
+  get has()
+  {
+    return typeof this.callback === 'function'
+  }
+
+  constructor(ms = 1e3, callback = () => {})
+  {
+    if (!Number.isInteger(ms)) {
+      ms = Throttle.TIMEOUT
     }
 
-    constructor(ms = 1e3, callback = () => {})
-    {
-        if (!Number.isInteger(ms)) {
-            ms = Throttle.TIMEOUT
-        }
+    // this.install = false
+    this.timeout = null
+    this.ms = ms
 
-        // this.install = false
-        this.timeout = null
-        this.ms = ms
+    this.set(callback)
+  }
 
-        this.set(callback)
+  run(...args)
+  {
+    this.timeout && clearTimeout(this.timeout)
+
+    this.timeout = setTimeout(() => {
+      this.callback(...args)
+    }, this.ms)
+  }
+
+  set(cb)
+  {
+    if (typeof cb === 'function') {
+      this.callback = cb
     }
 
-    run(...args)
-    {
-        this.timeout && clearTimeout(this.timeout)
+    return this.has
+  }
 
-        this.timeout = setTimeout(() => {
-            this.callback(...args)
-        }, this.ms)
+  static create(ms = 1e3, callback = null)
+  {
+    let handler = callback,
+      timeout = ms
+
+    if (typeof ms === 'function') {
+      timeout = callback
+      handler = ms
+    }
+    if (typeof timeout !== 'number') {
+      timeout = Throttle.TIMEOUT
     }
 
-    set(cb)
-    {
-        if (typeof cb === 'function') {
-            this.callback = cb
-        }
-
-        return this.has
-    }
-
-    static create(ms = 1e3, callback = null)
-    {
-        let handler = callback,
-            timeout = ms
-
-        if (typeof ms === 'function') {
-            timeout = callback
-            handler = ms
-        }
-        if (typeof timeout !== 'number') {
-            timeout = Throttle.TIMEOUT
-        }
-
-        return new Throttle(timeout, handler)
-    }
+    return new Throttle(timeout, handler)
+  }
 }

@@ -1,54 +1,54 @@
 /**
-* @typedef {Function} SubFn
-* @param {String} event
-* @param {Function} listener
-* @return {Function}
-*/
+ * @typedef {Function} SubFn
+ * @param {String} event
+ * @param {Function} listener
+ * @return {Function}
+ */
 
 /**
-* @typedef {Function} PubFn
-* @param {String} event
-* @param {Object} info
-* @return {void}
-*/
+ * @typedef {Function} PubFn
+ * @param {String} event
+ * @param {Object} info
+ * @return {void}
+ */
 
 /**
-* @typedef {Object} PubSub
-* @property {SubFn} sub
-* @property {PubFn} pub
-*/
+ * @typedef {Object} PubSub
+ * @property {SubFn} sub
+ * @property {PubFn} pub
+ */
 
 /**
-* @return {PubSub}
-*/
+ * @return {PubSub}
+ */
 export function pubsub()
 {
-    const bus = {}
+  const bus = {}
 
-    return {
-        /**
-         * @type {SubFn}
-         */
-        sub(event, listener)
-        {
-            if (!bus[event]) bus[event] = { queue: [] }
+  return {
+    /**
+     * @type {SubFn}
+     */
+    sub(event, listener)
+    {
+      if (!bus[event]) bus[event] = { queue: [] }
 
-            const index = bus[event].queue.push(listener) - 1
+      const index = bus[event].queue.push(listener) - 1
 
-            return () => {
-                delete bus[event].queue[index]
-            }
-        },
-        /**
-         * @type {PubFn}
-         */
-        pub(event, info)
-        {
-            if (!bus[event] || !bus[event].queue.length) return void
+      return () => {
+        delete bus[event].queue[index]
+      }
+    },
+    /**
+     * @type {PubFn}
+     */
+    pub(event, info)
+    {
+      if (!bus[event] || !bus[event].queue.length) return void
 
-                bus[event].queue.forEach(item => {
-                    item(info || {})
-                })
-        }
+        bus[event].queue.forEach(item => {
+          item(info || {})
+        })
     }
+  }
 }

@@ -1,483 +1,483 @@
 /**
-* Created by Sergiu Șandor (micku7zu) on 1/27/2017
-* Original idea: https://github.com/gijsroge/tilt.js
-* Version 1.7.0
-* MIT License
-*/
+ * Created by Sergiu Șandor (micku7zu) on 1/27/2017
+ * Original idea: https://github.com/gijsroge/tilt.js
+ * Version 1.7.0
+ * MIT License
+ */
 export class Tilt
 {
-    constructor(element, settings = {})
-    {
-        this.clientHeight = null
-        this.clientWidth = null
-        this.height = null
-        this.width = null
-        this.left = null
-        this.top = null
+  constructor(element, settings = {})
+  {
+    this.clientHeight = null
+    this.clientWidth = null
+    this.height = null
+    this.width = null
+    this.left = null
+    this.top = null
 
-        this.gammazero = null
-        this.betazero = null
-        this.lastgammazero = null
-        this.lastbetazero = null
+    this.gammazero = null
+    this.betazero = null
+    this.lastgammazero = null
+    this.lastbetazero = null
 
-        this.transitionTimeout = null
-        this.updateCall = null
-        this.event = null
+    this.transitionTimeout = null
+    this.updateCall = null
+    this.event = null
 
-        this.updateBind = this.update.bind(this)
-        this.resetBind = this.reset.bind(this)
+    this.updateBind = this.update.bind(this)
+    this.resetBind = this.reset.bind(this)
 
-        this.element = element
-        this.settings = this.extendSettings(settings)
+    this.element = element
+    this.settings = this.extendSettings(settings)
 
-        this.reverse = this.settings.reverse ? -1 : 1
-        this.glare = Tilt.isSettingTrue(this.settings.glare)
-        this.glarePrerender = Tilt.isSettingTrue(this.settings['glare-prerender'])
-        this.fullPageListening = Tilt.isSettingTrue(this.settings['full-page-listening'])
-        this.gyroscope = Tilt.isSettingTrue(this.settings.gyroscope)
-        this.gyroscopeSamples = this.settings.gyroscopeSamples
+    this.reverse = this.settings.reverse ? -1 : 1
+    this.glare = Tilt.isSettingTrue(this.settings.glare)
+    this.glarePrerender = Tilt.isSettingTrue(this.settings['glare-prerender'])
+    this.fullPageListening = Tilt.isSettingTrue(this.settings['full-page-listening'])
+    this.gyroscope = Tilt.isSettingTrue(this.settings.gyroscope)
+    this.gyroscopeSamples = this.settings.gyroscopeSamples
 
-        this.elementListener = this.getElementListener()
+    this.elementListener = this.getElementListener()
 
-        if (this.glare) {
-            this.prepareGlare()
-        }
-        if (this.fullPageListening) {
-            this.updateClientSize()
-        }
-
-        this.addEventListeners()
-        this.updateInitialPosition()
+    if (this.glare) {
+      this.prepareGlare()
+    }
+    if (this.fullPageListening) {
+      this.updateClientSize()
     }
 
-    getElementListener()
-    {
-        if (this.fullPageListening) {
-            return window.document
-        }
-        if (typeof this.settings['mouse-event-element'] === 'string') {
-            const mouseEventElement = document.querySelector(this.settings['mouse-event-element'])
+    this.addEventListeners()
+    this.updateInitialPosition()
+  }
 
-            if (mouseEventElement) {
-                return mouseEventElement
-            }
-        }
-        if (this.settings['mouse-event-element'] instanceof Node) {
-            return this.settings['mouse-event-element']
-        }
+  getElementListener()
+  {
+    if (this.fullPageListening) {
+      return window.document
+    }
+    if (typeof this.settings['mouse-event-element'] === 'string') {
+      const mouseEventElement = document.querySelector(this.settings['mouse-event-element'])
 
-        return this.element
+      if (mouseEventElement) {
+        return mouseEventElement
+      }
+    }
+    if (this.settings['mouse-event-element'] instanceof Node) {
+      return this.settings['mouse-event-element']
     }
 
-    addEventListeners()
-    {
-        this.onMouseEnterBind = this.onMouseEnter.bind(this)
-        this.onMouseMoveBind = this.onMouseMove.bind(this)
-        this.onMouseLeaveBind = this.onMouseLeave.bind(this)
-        this.onWindowResizeBind = this.onWindowResize.bind(this)
-        this.onDeviceOrientationBind = this.onDeviceOrientation.bind(this)
+    return this.element
+  }
 
-        this.elementListener.addEventListener('mouseenter', this.onMouseEnterBind)
-        this.elementListener.addEventListener('mouseleave', this.onMouseLeaveBind)
-        this.elementListener.addEventListener('mousemove', this.onMouseMoveBind)
+  addEventListeners()
+  {
+    this.onMouseEnterBind = this.onMouseEnter.bind(this)
+    this.onMouseMoveBind = this.onMouseMove.bind(this)
+    this.onMouseLeaveBind = this.onMouseLeave.bind(this)
+    this.onWindowResizeBind = this.onWindowResize.bind(this)
+    this.onDeviceOrientationBind = this.onDeviceOrientation.bind(this)
 
-        if (this.glare || this.fullPageListening) {
-            window.addEventListener('resize', this.onWindowResizeBind)
-        }
-        if (this.gyroscope) {
-            window.addEventListener('deviceorientation', this.onDeviceOrientationBind)
-        }
+    this.elementListener.addEventListener('mouseenter', this.onMouseEnterBind)
+    this.elementListener.addEventListener('mouseleave', this.onMouseLeaveBind)
+    this.elementListener.addEventListener('mousemove', this.onMouseMoveBind)
+
+    if (this.glare || this.fullPageListening) {
+      window.addEventListener('resize', this.onWindowResizeBind)
+    }
+    if (this.gyroscope) {
+      window.addEventListener('deviceorientation', this.onDeviceOrientationBind)
+    }
+  }
+
+  removeEventListeners()
+  {
+    this.elementListener.removeEventListener('mouseenter', this.onMouseEnterBind)
+    this.elementListener.removeEventListener('mouseleave', this.onMouseLeaveBind)
+    this.elementListener.removeEventListener('mousemove', this.onMouseMoveBind)
+
+    if (this.gyroscope) {
+      window.removeEventListener('deviceorientation', this.onDeviceOrientationBind)
+    }
+    if (this.glare || this.fullPageListening) {
+      window.removeEventListener('resize', this.onWindowResizeBind)
+    }
+  }
+
+  destroy()
+  {
+    clearTimeout(this.transitionTimeout)
+
+    if (this.updateCall !== null) {
+      cancelAnimationFrame(this.updateCall)
     }
 
-    removeEventListeners()
-    {
-        this.elementListener.removeEventListener('mouseenter', this.onMouseEnterBind)
-        this.elementListener.removeEventListener('mouseleave', this.onMouseLeaveBind)
-        this.elementListener.removeEventListener('mousemove', this.onMouseMoveBind)
+    this.reset()
+    this.removeEventListeners()
 
-        if (this.gyroscope) {
-            window.removeEventListener('deviceorientation', this.onDeviceOrientationBind)
-        }
-        if (this.glare || this.fullPageListening) {
-            window.removeEventListener('resize', this.onWindowResizeBind)
-        }
+    this.element.vTilt = null
+    delete this.element.vTilt
+
+    this.element = null
+  }
+
+  onDeviceOrientation(event)
+  {
+    if (event.gamma === null || event.beta === null) return
+
+    this.updateElementPosition()
+
+    if (this.gyroscopeSamples > 0) {
+      this.lastgammazero = this.gammazero
+      this.lastbetazero = this.betazero
+
+      if (this.gammazero === null) {
+        this.gammazero = event.gamma
+        this.betazero = event.beta
+      } else {
+        this.gammazero = (event.gamma + this.lastgammazero) / 2
+        this.betazero = (event.beta + this.lastbetazero) / 2
+      }
+
+      this.gyroscopeSamples -= 1
     }
 
-    destroy()
-    {
-        clearTimeout(this.transitionTimeout)
+    const totalAngleX = this.settings.gyroscopeMaxAngleX - this.settings.gyroscopeMinAngleX,
+      totalAngleY = this.settings.gyroscopeMaxAngleY - this.settings.gyroscopeMinAngleY,
 
-        if (this.updateCall !== null) {
-            cancelAnimationFrame(this.updateCall)
-        }
+      degreesPerPixelX = totalAngleX / this.width,
+      degreesPerPixelY = totalAngleY / this.height,
 
-        this.reset()
-        this.removeEventListeners()
+      angleX = event.gamma - (this.settings.gyroscopeMinAngleX + this.gammazero),
+      angleY = event.beta - (this.settings.gyroscopeMinAngleY + this.betazero),
 
-        this.element.vTilt = null
-        delete this.element.vTilt
+      posX = angleX / degreesPerPixelX,
+      posY = angleY / degreesPerPixelY
 
-        this.element = null
+    if (this.updateCall !== null) {
+      cancelAnimationFrame(this.updateCall)
     }
 
-    onDeviceOrientation(event)
-    {
-        if (event.gamma === null || event.beta === null) return
-
-        this.updateElementPosition()
-
-        if (this.gyroscopeSamples > 0) {
-            this.lastgammazero = this.gammazero
-            this.lastbetazero = this.betazero
-
-            if (this.gammazero === null) {
-                this.gammazero = event.gamma
-                this.betazero = event.beta
-            } else {
-                this.gammazero = (event.gamma + this.lastgammazero) / 2
-                this.betazero = (event.beta + this.lastbetazero) / 2
-            }
-
-            this.gyroscopeSamples -= 1
-        }
-
-        const totalAngleX = this.settings.gyroscopeMaxAngleX - this.settings.gyroscopeMinAngleX,
-            totalAngleY = this.settings.gyroscopeMaxAngleY - this.settings.gyroscopeMinAngleY,
-
-            degreesPerPixelX = totalAngleX / this.width,
-            degreesPerPixelY = totalAngleY / this.height,
-
-            angleX = event.gamma - (this.settings.gyroscopeMinAngleX + this.gammazero),
-            angleY = event.beta - (this.settings.gyroscopeMinAngleY + this.betazero),
-
-            posX = angleX / degreesPerPixelX,
-            posY = angleY / degreesPerPixelY
-
-        if (this.updateCall !== null) {
-            cancelAnimationFrame(this.updateCall)
-        }
-
-        this.event = {
-            clientX: posX + this.left,
-            clientY: posY + this.top
-        }
-
-        this.updateCall = requestAnimationFrame(this.updateBind)
+    this.event = {
+      clientX: posX + this.left,
+      clientY: posY + this.top
     }
 
-    onMouseEnter()
-    {
-        this.updateElementPosition()
-        this.element.style.willChange = 'transform'
-        this.setTransition()
+    this.updateCall = requestAnimationFrame(this.updateBind)
+  }
+
+  onMouseEnter()
+  {
+    this.updateElementPosition()
+    this.element.style.willChange = 'transform'
+    this.setTransition()
+  }
+
+  onMouseMove(event)
+  {
+    this.updateCall && cancelAnimationFrame(this.updateCall)
+
+    this.event = event
+
+    this.updateCall = requestAnimationFrame(this.updateBind)
+  }
+
+  onMouseLeave()
+  {
+    this.setTransition()
+
+    if (this.settings.reset) {
+      requestAnimationFrame(this.resetBind)
+    }
+  }
+
+  reset()
+  {
+    this.event = {
+      clientX: this.left + this.width / 2,
+      clientY: this.top + this.height / 2
     }
 
-    onMouseMove(event)
-    {
-        this.updateCall && cancelAnimationFrame(this.updateCall)
-
-        this.event = event
-
-        this.updateCall = requestAnimationFrame(this.updateBind)
+    if (this.element && this.element.style) {
+      this.element.style.transform = `perspective(${this.settings.perspective}px) ` +
+        'rotateX(0deg) ' +
+        'rotateY(0deg) ' +
+        'scale3d(1, 1, 1)'
     }
 
-    onMouseLeave()
-    {
-        this.setTransition()
+    this.resetGlare()
+  }
 
-        if (this.settings.reset) {
-            requestAnimationFrame(this.resetBind)
-        }
+  resetGlare()
+  {
+    if (this.glare) {
+      this.glareElement.style.transform = 'rotate(180deg) translate(-50%, -50%)'
+      this.glareElement.style.opacity = '0'
+    }
+  }
+
+  updateInitialPosition()
+  {
+    if (this.settings.startX === 0 && this.settings.startY === 0) return
+
+    this.onMouseEnter()
+
+    if (this.fullPageListening) {
+      this.event = {
+        clientX: (this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.clientWidth,
+        clientY: (this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.clientHeight
+      }
+    } else {
+      this.event = {
+        clientX: this.left + ((this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.width),
+        clientY: this.top + ((this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.height)
+      }
     }
 
-    reset()
-    {
-        this.event = {
-            clientX: this.left + this.width / 2,
-            clientY: this.top + this.height / 2
-        }
+    let backupScale = this.settings.scale
 
-        if (this.element && this.element.style) {
-            this.element.style.transform = `perspective(${this.settings.perspective}px) ` +
-                'rotateX(0deg) ' +
-                'rotateY(0deg) ' +
-                'scale3d(1, 1, 1)'
-        }
+    this.settings.scale = 1
+    this.update()
 
-        this.resetGlare()
+    this.settings.scale = backupScale
+    this.resetGlare()
+  }
+
+  getValues()
+  {
+    let x, y
+
+    if (this.fullPageListening) {
+      x = this.event.clientX / this.clientWidth
+      y = this.event.clientY / this.clientHeight
+    } else {
+      x = (this.event.clientX - this.left) / this.width
+      y = (this.event.clientY - this.top) / this.height
     }
 
-    resetGlare()
-    {
-        if (this.glare) {
-            this.glareElement.style.transform = 'rotate(180deg) translate(-50%, -50%)'
-            this.glareElement.style.opacity = '0'
-        }
+    x = Math.min(Math.max(x, 0), 1)
+    y = Math.min(Math.max(y, 0), 1)
+
+    return {
+      tiltX: (this.reverse * (this.settings.max - x * this.settings.max * 2)).toFixed(2),
+      tiltY: (this.reverse * (y * this.settings.max * 2 - this.settings.max)).toFixed(2),
+      angle: Math.atan2(this.event.clientX - (this.left + this.width / 2), -(this.event.clientY - (this.top + this.height / 2))) * (180 / Math.PI),
+      percentageX: x * 100,
+      percentageY: y * 100
+    }
+  }
+
+  updateElementPosition()
+  {
+    const { left, top } = this.element.getBoundingClientRect()
+
+    this.width = this.element.offsetWidth
+    this.height = this.element.offsetHeight
+    this.left = left
+    this.top = top
+  }
+
+  update()
+  {
+    try {
+
+      const values = this.getValues()
+
+      this.element.style.transform = 'perspective(' + this.settings.perspective + 'px) ' +
+        'rotateX(' + (this.settings.axis === 'x' ? 0 : values.tiltY) + 'deg) ' +
+        'rotateY(' + (this.settings.axis === 'y' ? 0 : values.tiltX) + 'deg) ' +
+        'scale3d(' + this.settings.scale + ', ' + this.settings.scale + ', ' + this.settings.scale + ')'
+
+      if (this.glare) {
+        this.glareElement.style.transform = `rotate(${values.angle}deg) translate(-50%, -50%)`
+        this.glareElement.style.opacity = `${values.percentageY * this.settings['max-glare'] / 100}`
+      }
+
+      this.element.dispatchEvent(new CustomEvent('tiltChange', {
+        detail: values
+      }))
+
+      this.updateCall = null
+
+    } catch (e) {
+    }
+  }
+
+  /**
+   * Appends the glare element (if glarePrerender equals false)
+   * and sets the default style
+   */
+  prepareGlare()
+  {
+    // If option pre-render is enabled we assume all html/css is present for an optimal glare effect.
+    if (!this.glarePrerender) {
+      const jsTiltGlare = document.createElement('div')
+      jsTiltGlare.classList.add('js-tilt-glare')
+
+      const jsTiltGlareInner = document.createElement('div')
+      jsTiltGlareInner.classList.add('js-tilt-glare-inner')
+
+      jsTiltGlare.appendChild(jsTiltGlareInner)
+      this.element.appendChild(jsTiltGlare)
     }
 
-    updateInitialPosition()
-    {
-        if (this.settings.startX === 0 && this.settings.startY === 0) return
+    this.glareElementWrapper = this.element.querySelector('.js-tilt-glare')
+    this.glareElement = this.element.querySelector('.js-tilt-glare-inner')
 
-        this.onMouseEnter()
+    if (this.glarePrerender) return
 
-        if (this.fullPageListening) {
-            this.event = {
-                clientX: (this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.clientWidth,
-                clientY: (this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.clientHeight
-            }
-        } else {
-            this.event = {
-                clientX: this.left + ((this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.width),
-                clientY: this.top + ((this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.height)
-            }
-        }
+    Object.assign(this.glareElementWrapper.style, {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden',
+      'pointer-events': 'none'
+    })
 
-        let backupScale = this.settings.scale
+    Object.assign(this.glareElement.style, {
+      position: 'absolute',
+      left: '50%',
+      top: '50%',
+      'pointer-events': 'none',
+      'background-image': 'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)',
+      height: `${this.element.offsetWidth * 2}px`,
+      width: `${this.element.offsetWidth * 2}px`,
+      transform: 'rotate(180deg) translate(-50%, -50%)',
+      'transform-origin': '0% 0%',
+      opacity: '0'
+    })
+  }
 
-        this.settings.scale = 1
-        this.update()
+  updateGlareSize()
+  {
+    if (this.glare) {
+      Object.assign(this.glareElement.style, {
+        height: `${this.element.offsetWidth * 2}`,
+        width: `${this.element.offsetWidth * 2}`
+      })
+    }
+  }
 
-        this.settings.scale = backupScale
-        this.resetGlare()
+  updateClientSize()
+  {
+    this.clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    this.clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+  }
+
+  onWindowResize()
+  {
+    this.updateGlareSize()
+    this.updateClientSize()
+  }
+
+  setTransition()
+  {
+    clearTimeout(this.transitionTimeout)
+
+    this.element.style.transition = this.settings.speed + 'ms ' + this.settings.easing
+
+    if (this.glare) {
+      this.glareElement.style.transition = `opacity ${this.settings.speed}ms ${this.settings.easing}`
     }
 
-    getValues()
-    {
-        let x, y
+    this.transitionTimeout = setTimeout(() => {
+      this.element.style.transition = ''
 
-        if (this.fullPageListening) {
-            x = this.event.clientX / this.clientWidth
-            y = this.event.clientY / this.clientHeight
-        } else {
-            x = (this.event.clientX - this.left) / this.width
-            y = (this.event.clientY - this.top) / this.height
-        }
+      if (this.glare) {
+        this.glareElement.style.transition = ''
+      }
+    }, this.settings.speed)
+  }
 
-        x = Math.min(Math.max(x, 0), 1)
-        y = Math.min(Math.max(y, 0), 1)
+  /**
+   * Method return patched settings of instance
+   * @param {Boolean} settings.reverse - reverse the tilt direction
+   * @param {Number} settings.max - max tilt rotation (degrees)
+   * @param {startX} settings.startX - the starting tilt on the X axis, in degrees. Default: 0
+   * @param {startY} settings.startY - the starting tilt on the Y axis, in degrees. Default: 0
+   * @param {Number} settings.perspective - Transform perspective, the lower the more extreme the tilt gets
+   * @param {String} settings.easing - Easing on enter/exit
+   * @param {Number} settings.scale - 2 = 200%, 1.5 = 150%, etc..
+   * @param {Number} settings.speed - Speed of the enter/exit transition
+   * @param {Boolean} settings.transition - Set a transition on enter/exit
+   * @param {String|null} settings.axis - What axis should be disabled. Can be X or Y
+   * @param {Boolean} settings.glare - What axis should be disabled. Can be X or Y
+   * @param {Number} settings.max-glare - the maximum "glare" opacity (1 = 100%, 0.5 = 50%)
+   * @param {Boolean} settings.glare-prerender - false = Tilt creates the glare elements for you, otherwise
+   * @param {Boolean} settings.full-page-listening - If true, parallax effect will listen to mouse move events on the whole document, not only the selected element
+   * @param {String|Object} settings.mouse-event-element - String selector or link to HTML-element what will be listen mouse events
+   * @param {Boolean} settings.reset - false = If the tilt effect has to be reset on exit
+   * @param {gyroscope} settings.gyroscope - Enable tilting by deviceorientation events
+   * @param {gyroscopeSensitivity} settings.gyroscopeSensitivity - Between 0 and 1 - The angle at which max tilt position is reached. 1 = 90deg, 0.5 = 45deg, etc..
+   * @param {gyroscopeSamples} settings.gyroscopeSamples - How many gyroscope moves to decide the starting position.
+   */
+  extendSettings(settings)
+  {
+    const newSettings = {},
+      defaultSettings = {
+        reverse: false,
+        max: 15,
+        startX: 0,
+        startY: 0,
+        perspective: 1000,
+        easing: 'cubic-bezier(.03,.98,.52,.99)',
+        scale: 1,
+        speed: 300,
+        transition: true,
+        axis: null,
+        glare: false,
+        'max-glare': 1,
+        'glare-prerender': false,
+        'full-page-listening': false,
+        'mouse-event-element': null,
+        reset: true,
+        gyroscope: false,
+        gyroscopeMinAngleX: -45,
+        gyroscopeMaxAngleX: 45,
+        gyroscopeMinAngleY: -45,
+        gyroscopeMaxAngleY: 45,
+        gyroscopeSamples: 10
+      }
 
-        return {
-            tiltX: (this.reverse * (this.settings.max - x * this.settings.max * 2)).toFixed(2),
-            tiltY: (this.reverse * (y * this.settings.max * 2 - this.settings.max)).toFixed(2),
-            angle: Math.atan2(this.event.clientX - (this.left + this.width / 2), -(this.event.clientY - (this.top + this.height / 2))) * (180 / Math.PI),
-            percentageX: x * 100,
-            percentageY: y * 100
-        }
-    }
+    for (let property in defaultSettings) {
+      if (property in settings) {
+        newSettings[property] = settings[property]
+      } else if (this.element.hasAttribute('data-tilt-' + property)) {
+        let attribute = this.element.getAttribute('data-tilt-' + property)
 
-    updateElementPosition()
-    {
-        const { left, top } = this.element.getBoundingClientRect()
-
-        this.width = this.element.offsetWidth
-        this.height = this.element.offsetHeight
-        this.left = left
-        this.top = top
-    }
-
-    update()
-    {
         try {
-
-            const values = this.getValues()
-
-            this.element.style.transform = 'perspective(' + this.settings.perspective + 'px) ' +
-                'rotateX(' + (this.settings.axis === 'x' ? 0 : values.tiltY) + 'deg) ' +
-                'rotateY(' + (this.settings.axis === 'y' ? 0 : values.tiltX) + 'deg) ' +
-                'scale3d(' + this.settings.scale + ', ' + this.settings.scale + ', ' + this.settings.scale + ')'
-
-            if (this.glare) {
-                this.glareElement.style.transform = `rotate(${values.angle}deg) translate(-50%, -50%)`
-                this.glareElement.style.opacity = `${values.percentageY * this.settings['max-glare'] / 100}`
-            }
-
-            this.element.dispatchEvent(new CustomEvent('tiltChange', {
-                detail: values
-            }))
-
-            this.updateCall = null
-
+          newSettings[property] = JSON.parse(attribute)
         } catch (e) {
+          newSettings[property] = attribute
         }
+      } else {
+        newSettings[property] = defaultSettings[property]
+      }
     }
 
-    /**
-     * Appends the glare element (if glarePrerender equals false)
-     * and sets the default style
-     */
-    prepareGlare()
-    {
-        // If option pre-render is enabled we assume all html/css is present for an optimal glare effect.
-        if (!this.glarePrerender) {
-            const jsTiltGlare = document.createElement('div')
-            jsTiltGlare.classList.add('js-tilt-glare')
+    return newSettings
+  }
 
-            const jsTiltGlareInner = document.createElement('div')
-            jsTiltGlareInner.classList.add('js-tilt-glare-inner')
+  static isSettingTrue(setting)
+  {
+    return setting === '' || setting === true || setting === 1
+  }
 
-            jsTiltGlare.appendChild(jsTiltGlareInner)
-            this.element.appendChild(jsTiltGlare)
+  static init(elements, settings)
+  {
+    if (elements instanceof Node) {
+      elements = [elements]
+    }
+    if (elements instanceof NodeList) {
+      elements = Array.from(elements)
+    }
+    if (Array.isArray(elements)) {
+      elements.forEach((element) => {
+        if (!('vTilt' in element)) {
+          element.vTilt = new Tilt(element, settings)
         }
-
-        this.glareElementWrapper = this.element.querySelector('.js-tilt-glare')
-        this.glareElement = this.element.querySelector('.js-tilt-glare-inner')
-
-        if (this.glarePrerender) return
-
-        Object.assign(this.glareElementWrapper.style, {
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '100%',
-            overflow: 'hidden',
-            'pointer-events': 'none'
-        })
-
-        Object.assign(this.glareElement.style, {
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            'pointer-events': 'none',
-            'background-image': 'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)',
-            height: `${this.element.offsetWidth * 2}px`,
-            width: `${this.element.offsetWidth * 2}px`,
-            transform: 'rotate(180deg) translate(-50%, -50%)',
-            'transform-origin': '0% 0%',
-            opacity: '0'
-        })
+      })
     }
-
-    updateGlareSize()
-    {
-        if (this.glare) {
-            Object.assign(this.glareElement.style, {
-                height: `${this.element.offsetWidth * 2}`,
-                width: `${this.element.offsetWidth * 2}`
-            })
-        }
-    }
-
-    updateClientSize()
-    {
-        this.clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-        this.clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-    }
-
-    onWindowResize()
-    {
-        this.updateGlareSize()
-        this.updateClientSize()
-    }
-
-    setTransition()
-    {
-        clearTimeout(this.transitionTimeout)
-
-        this.element.style.transition = this.settings.speed + 'ms ' + this.settings.easing
-
-        if (this.glare) {
-            this.glareElement.style.transition = `opacity ${this.settings.speed}ms ${this.settings.easing}`
-        }
-
-        this.transitionTimeout = setTimeout(() => {
-            this.element.style.transition = ''
-
-            if (this.glare) {
-                this.glareElement.style.transition = ''
-            }
-        }, this.settings.speed)
-    }
-
-    /**
-     * Method return patched settings of instance
-     * @param {Boolean} settings.reverse - reverse the tilt direction
-     * @param {Number} settings.max - max tilt rotation (degrees)
-     * @param {startX} settings.startX - the starting tilt on the X axis, in degrees. Default: 0
-     * @param {startY} settings.startY - the starting tilt on the Y axis, in degrees. Default: 0
-     * @param {Number} settings.perspective - Transform perspective, the lower the more extreme the tilt gets
-     * @param {String} settings.easing - Easing on enter/exit
-     * @param {Number} settings.scale - 2 = 200%, 1.5 = 150%, etc..
-     * @param {Number} settings.speed - Speed of the enter/exit transition
-     * @param {Boolean} settings.transition - Set a transition on enter/exit
-     * @param {String|null} settings.axis - What axis should be disabled. Can be X or Y
-     * @param {Boolean} settings.glare - What axis should be disabled. Can be X or Y
-     * @param {Number} settings.max-glare - the maximum "glare" opacity (1 = 100%, 0.5 = 50%)
-     * @param {Boolean} settings.glare-prerender - false = Tilt creates the glare elements for you, otherwise
-     * @param {Boolean} settings.full-page-listening - If true, parallax effect will listen to mouse move events on the whole document, not only the selected element
-     * @param {String|Object} settings.mouse-event-element - String selector or link to HTML-element what will be listen mouse events
-     * @param {Boolean} settings.reset - false = If the tilt effect has to be reset on exit
-     * @param {gyroscope} settings.gyroscope - Enable tilting by deviceorientation events
-     * @param {gyroscopeSensitivity} settings.gyroscopeSensitivity - Between 0 and 1 - The angle at which max tilt position is reached. 1 = 90deg, 0.5 = 45deg, etc..
-     * @param {gyroscopeSamples} settings.gyroscopeSamples - How many gyroscope moves to decide the starting position.
-     */
-    extendSettings(settings)
-    {
-        const newSettings = {},
-            defaultSettings = {
-                reverse: false,
-                max: 15,
-                startX: 0,
-                startY: 0,
-                perspective: 1000,
-                easing: 'cubic-bezier(.03,.98,.52,.99)',
-                scale: 1,
-                speed: 300,
-                transition: true,
-                axis: null,
-                glare: false,
-                'max-glare': 1,
-                'glare-prerender': false,
-                'full-page-listening': false,
-                'mouse-event-element': null,
-                reset: true,
-                gyroscope: false,
-                gyroscopeMinAngleX: -45,
-                gyroscopeMaxAngleX: 45,
-                gyroscopeMinAngleY: -45,
-                gyroscopeMaxAngleY: 45,
-                gyroscopeSamples: 10
-            }
-
-        for (let property in defaultSettings) {
-            if (property in settings) {
-                newSettings[property] = settings[property]
-            } else if (this.element.hasAttribute('data-tilt-' + property)) {
-                let attribute = this.element.getAttribute('data-tilt-' + property)
-
-                try {
-                    newSettings[property] = JSON.parse(attribute)
-                } catch (e) {
-                    newSettings[property] = attribute
-                }
-            } else {
-                newSettings[property] = defaultSettings[property]
-            }
-        }
-
-        return newSettings
-    }
-
-    static isSettingTrue(setting)
-    {
-        return setting === '' || setting === true || setting === 1
-    }
-
-    static init(elements, settings)
-    {
-        if (elements instanceof Node) {
-            elements = [elements]
-        }
-        if (elements instanceof NodeList) {
-            elements = Array.from(elements)
-        }
-        if (Array.isArray(elements)) {
-            elements.forEach((element) => {
-                if (!('vTilt' in element)) {
-                    element.vTilt = new Tilt(element, settings)
-                }
-            })
-        }
-    }
+  }
 }

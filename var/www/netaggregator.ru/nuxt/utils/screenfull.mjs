@@ -1,160 +1,160 @@
 const document = typeof window !== 'undefined' && typeof window.document !== 'undefined' ? window.document : {}
 
 /**
-* @see https://github.com/sindresorhus/screenfull.js
-*/
+ * @see https://github.com/sindresorhus/screenfull.js
+ */
 export const screenfull = (function(fullscreen) {
-    const isEnabled = false, fn = {}
+  const isEnabled = false, fn = {}
 
-    if (!fullscreen.some(map => {
-        if (map[1] in document) {
-            for (let i = 0; i < map.length; i++) {
-                fn[fullscreen[0][i]] = map[i]
-            }
+  if (!fullscreen.some(map => {
+    if (map[1] in document) {
+      for (let i = 0; i < map.length; i++) {
+        fn[fullscreen[0][i]] = map[i]
+      }
 
-            return true
-        }
-
-        return false
-    })) {
-        return { isEnabled }
+      return true
     }
 
-    const eventMap = { change: fn.fullscreenchange, error: fn.fullscreenerror },
+    return false
+  })) {
+    return { isEnabled }
+  }
 
-        handler = {
-            request(element, options)
-            {
-                const self = this
+  const eventMap = { change: fn.fullscreenchange, error: fn.fullscreenerror },
 
-                return new Promise((resolve, reject) => {
-                    const onFullScreenEntered = () => {
-                        self.off('change', onFullScreenEntered)
-                        resolve(self.isFullscreen)
-                    }
+    handler = {
+      request(element, options)
+      {
+        const self = this
 
-                    self.on('change', onFullScreenEntered)
+        return new Promise((resolve, reject) => {
+          const onFullScreenEntered = () => {
+            self.off('change', onFullScreenEntered)
+            resolve(self.isFullscreen)
+          }
 
-                    element || (element = document.documentElement)
+          self.on('change', onFullScreenEntered)
 
-                    let returnPromise = element[fn.requestFullscreen](options)
+          element || (element = document.documentElement)
 
-                    if (returnPromise instanceof Promise) {
-                        returnPromise.then(onFullScreenEntered).catch(reject)
-                    }
-                })
-            },
-            exit()
-            {
-                const self = this
+          let returnPromise = element[fn.requestFullscreen](options)
 
-                return new Promise((resolve, reject) => {
-                    if (!self.isFullscreen) {
-                        resolve(false)
-                        return
-                    }
+          if (returnPromise instanceof Promise) {
+            returnPromise.then(onFullScreenEntered).catch(reject)
+          }
+        })
+      },
+      exit()
+      {
+        const self = this
 
-                    const onFullScreenExit = () => {
-                        self.off('change', onFullScreenExit)
-                        resolve(self.isFullscreen)
-                    }
+        return new Promise((resolve, reject) => {
+          if (!self.isFullscreen) {
+            resolve(false)
+            return
+          }
 
-                    self.on('change', onFullScreenExit)
+          const onFullScreenExit = () => {
+            self.off('change', onFullScreenExit)
+            resolve(self.isFullscreen)
+          }
 
-                    let returnPromise = document[fn.exitFullscreen]()
+          self.on('change', onFullScreenExit)
 
-                    if (returnPromise instanceof Promise) {
-                        returnPromise.then(onFullScreenExit).catch(reject)
-                    }
-                })
-            },
-            toggle(element, options)
-            {
-                return this.isFullscreen ? this.exit() : this.request(element, options)
-            },
-            onchange(callback)
-            {
-                this.on('change', callback)
-            },
-            onerror(callback)
-            {
-                this.on('error', callback)
-            },
-            on(event, callback)
-            {
-                const eventName = eventMap[event]
+          let returnPromise = document[fn.exitFullscreen]()
 
-                if (eventName) {
-                    document.addEventListener(eventName, callback, false)
-                }
-            },
-            off(event, callback)
-            {
-                const eventName = eventMap[event]
+          if (returnPromise instanceof Promise) {
+            returnPromise.then(onFullScreenExit).catch(reject)
+          }
+        })
+      },
+      toggle(element, options)
+      {
+        return this.isFullscreen ? this.exit() : this.request(element, options)
+      },
+      onchange(callback)
+      {
+        this.on('change', callback)
+      },
+      onerror(callback)
+      {
+        this.on('error', callback)
+      },
+      on(event, callback)
+      {
+        const eventName = eventMap[event]
 
-                if (eventName) {
-                    document.removeEventListener(eventName, callback, false)
-                }
-            }
+        if (eventName) {
+          document.addEventListener(eventName, callback, false)
         }
+      },
+      off(event, callback)
+      {
+        const eventName = eventMap[event]
 
-    Object.defineProperties(handler, {
-        isFullscreen: {
-            get() {
-                return Boolean(document[fn.fullscreenElement])
-            }
-        },
-        element: {
-            enumerable: true,
-            get() {
-                return document[fn.fullscreenElement]
-            }
-        },
-        isEnabled: {
-            enumerable: true,
-            get() {
-                return Boolean(document[fn.fullscreenEnabled])
-            }
+        if (eventName) {
+          document.removeEventListener(eventName, callback, false)
         }
-    })
+      }
+    }
 
-    return handler
+  Object.defineProperties(handler, {
+    isFullscreen: {
+      get() {
+        return Boolean(document[fn.fullscreenElement])
+      }
+    },
+    element: {
+      enumerable: true,
+      get() {
+        return document[fn.fullscreenElement]
+      }
+    },
+    isEnabled: {
+      enumerable: true,
+      get() {
+        return Boolean(document[fn.fullscreenEnabled])
+      }
+    }
+  })
+
+  return handler
 
 })([
-    [
-        'requestFullscreen',
-        'exitFullscreen',
-        'fullscreenElement',
-        'fullscreenEnabled',
-        'fullscreenchange',
-        'fullscreenerror'
-    ],[
-        'webkitRequestFullscreen',
-        'webkitExitFullscreen',
-        'webkitFullscreenElement',
-        'webkitFullscreenEnabled',
-        'webkitfullscreenchange',
-        'webkitfullscreenerror'
-    ],[
-        'webkitRequestFullScreen',
-        'webkitCancelFullScreen',
-        'webkitCurrentFullScreenElement',
-        'webkitCancelFullScreen',
-        'webkitfullscreenchange',
-        'webkitfullscreenerror'
-    ],[
-        'mozRequestFullScreen',
-        'mozCancelFullScreen',
-        'mozFullScreenElement',
-        'mozFullScreenEnabled',
-        'mozfullscreenchange',
-        'mozfullscreenerror'
-    ],[
-        'msRequestFullscreen',
-        'msExitFullscreen',
-        'msFullscreenElement',
-        'msFullscreenEnabled',
-        'MSFullscreenChange',
-        'MSFullscreenError'
-    ]
+  [
+    'requestFullscreen',
+    'exitFullscreen',
+    'fullscreenElement',
+    'fullscreenEnabled',
+    'fullscreenchange',
+    'fullscreenerror'
+  ],[
+    'webkitRequestFullscreen',
+    'webkitExitFullscreen',
+    'webkitFullscreenElement',
+    'webkitFullscreenEnabled',
+    'webkitfullscreenchange',
+    'webkitfullscreenerror'
+  ],[
+    'webkitRequestFullScreen',
+    'webkitCancelFullScreen',
+    'webkitCurrentFullScreenElement',
+    'webkitCancelFullScreen',
+    'webkitfullscreenchange',
+    'webkitfullscreenerror'
+  ],[
+    'mozRequestFullScreen',
+    'mozCancelFullScreen',
+    'mozFullScreenElement',
+    'mozFullScreenEnabled',
+    'mozfullscreenchange',
+    'mozfullscreenerror'
+  ],[
+    'msRequestFullscreen',
+    'msExitFullscreen',
+    'msFullscreenElement',
+    'msFullscreenEnabled',
+    'MSFullscreenChange',
+    'MSFullscreenError'
+  ]
 ])
